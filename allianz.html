@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>安聯投信｜2026 Q2 晴雨晦明・主動更有優勢</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
+    :root {
+      --navy-dark: #003781;
+      --navy:      #1B3F6D;
+      --navy-mid:  #1E5FA0;
+      --cyan:      #00A8E6;
+      --cyan-dim:  #0090C8;
+      --cyan-light:#E5F5FD;
+      --cyan-pale: #F0FAFF;
+      --gold:      #F0A500;
+      --gold-light:#FEF3DC;
+      --bg:        #F0F4F8;
+      --card:      #FFFFFF;
+      --text:      #1A202C;
+      --muted:     #6B7280;
+      --line:      #E2E8F0;
+      --green:     #16A34A;
+      --red:       #DC2626;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ──── HERO ──── */
+    .hero {
+      min-height: 100svh;
+      background: linear-gradient(160deg, #001F4D 0%, var(--navy-dark) 45%, var(--navy) 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 60px);
+      position: relative; overflow: hidden; text-align: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 30%, rgba(0,168,230,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-brand {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: clamp(24px, 4vw, 40px);
+    }
+    .hero-brand .logo-mark {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 2px solid var(--cyan);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .hero-brand .logo-mark svg { width: 20px; height: 20px; }
+    .hero-brand .brand-name {
+      font-size: clamp(13px, 2vw, 15px);
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.05em;
+      line-height: 1.3;
+      text-align: left;
+    }
+    .hero-brand .brand-name strong { color: #fff; display: block; font-weight: 700; }
+    .hero-tag {
+      display: inline-block;
+      border: 1px solid rgba(0,168,230,0.5);
+      color: var(--cyan);
+      font-size: clamp(11px, 1.5vw, 13px);
+      letter-spacing: 0.15em;
+      padding: 5px 16px; border-radius: 100px;
+      margin-bottom: clamp(20px, 3vw, 28px);
+    }
+    .hero h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.15;
+      word-break: keep-all;
+      margin-bottom: 16px;
+    }
+    .hero h1 .line1 {
+      display: block;
+      font-size: clamp(40px, 9vw, 96px);
+      letter-spacing: -0.02em;
+    }
+    .hero h1 .line2 {
+      display: block;
+      font-size: clamp(28px, 6vw, 64px);
+      color: var(--cyan);
+      letter-spacing: 0.02em;
+      margin-top: 4px;
+    }
+    .hero-sub {
+      font-size: clamp(14px, 2vw, 17px);
+      color: rgba(255,255,255,0.65);
+      max-width: 560px; line-height: 1.7;
+      margin-bottom: clamp(40px, 6vw, 60px);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      max-width: 520px; width: 100%;
+    }
+    @media (min-width: 480px) {
+      .hero-stats { grid-template-columns: repeat(4, 1fr); }
+    }
+    .hero-stat {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px; padding: 14px 10px;
+      backdrop-filter: blur(4px);
+    }
+    .hero-stat .num {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 28px);
+      font-weight: 900; color: var(--gold);
+      line-height: 1; white-space: nowrap;
+    }
+    .hero-stat .label {
+      font-size: 11px; color: rgba(255,255,255,0.55);
+      margin-top: 5px; line-height: 1.4;
+    }
+    .hero-scroll {
+      position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+      color: rgba(255,255,255,0.3); font-size: 12px;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+    .hero-scroll::after {
+      content: '▼'; font-size: 10px; opacity: 0.5;
+    }
+
+    /* ──── LAYOUT ──── */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 32px); }
+    .section { padding: clamp(56px, 8vw, 80px) 0; }
+    .section-alt { background: var(--cyan-pale); }
+    .section-dark {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+    }
+
+    /* ──── SECTION HEADER ──── */
+    .sec-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--cyan-light); color: var(--navy-mid);
+      font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+      padding: 5px 14px; border-radius: 100px;
+      margin-bottom: 14px;
+    }
+    .sec-badge.gold-badge {
+      background: var(--gold-light); color: #92500A;
+    }
+    .sec-badge.white-badge {
+      background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9);
+    }
+    .sec-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(24px, 4.5vw, 42px);
+      font-weight: 900; color: var(--navy);
+      line-height: 1.25; word-break: keep-all;
+      margin-bottom: 12px;
+    }
+    .sec-title.white { color: #fff; }
+    .sec-hook {
+      font-size: clamp(15px, 2.2vw, 18px);
+      color: var(--muted); line-height: 1.7;
+      margin-bottom: clamp(32px, 5vw, 48px);
+      max-width: 680px;
+    }
+    .sec-hook strong { color: var(--navy); }
+    .sec-hook.white { color: rgba(255,255,255,0.75); }
+
+    /* ──── QUOTE / MARKS BLOCK ──── */
+    .marks-block {
+      background: var(--navy);
+      border-radius: 16px; padding: clamp(24px, 4vw, 40px);
+      border-left: 5px solid var(--gold);
+      margin-bottom: clamp(32px, 5vw, 48px);
+      position: relative; overflow: hidden;
+    }
+    .marks-block::before {
+      content: '"';
+      position: absolute; top: -24px; left: 20px;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 120px; color: rgba(255,255,255,0.06);
+      line-height: 1;
+    }
+    .marks-quote {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(17px, 2.8vw, 24px);
+      font-weight: 700; color: #fff;
+      line-height: 1.6; position: relative;
+    }
+    .marks-quote em { color: var(--gold); font-style: normal; }
+    .marks-author {
+      font-size: 13px; color: rgba(255,255,255,0.5);
+      margin-top: 12px; position: relative;
+    }
+    .marks-sub {
+      margin-top: 14px; position: relative;
+      font-size: 15px; color: var(--cyan);
+      font-weight: 500;
+    }
+
+    /* ──── UNCERTAINTY CHART ──── */
+    .chart-wrap {
+      background: var(--card); border-radius: 16px;
+      border: 1px solid var(--line);
+      padding: clamp(16px, 3vw, 28px);
+      margin-bottom: clamp(32px, 5vw, 48px);
+      overflow-x: auto;
+    }
+    .chart-title {
+      font-size: 14px; font-weight: 700; color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .chart-sub { font-size: 12px; color: var(--muted); margin-bottom: 16px; }
+
+    /* ──── 3 PILLAR CARDS ──── */
+    .pillars {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: clamp(32px, 5vw, 48px);
+    }
+    @media (min-width: 640px) {
+      .pillars { grid-template-columns: repeat(3, 1fr); }
+    }
+    .pillar {
+      border-radius: 14px; overflow: hidden;
+      border: 2px solid var(--line);
+      background: var(--card);
+    }
+    .pillar-head {
+      padding: 14px 18px;
+      font-weight: 700; font-size: 14px;
+    }
+    .pillar-head.c1 { background: var(--navy-dark); color: #fff; }
+    .pillar-head.c2 { background: var(--navy-mid); color: #fff; }
+    .pillar-head.c3 { background: var(--cyan-dim); color: #fff; }
+    .pillar-num {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 11px; opacity: 0.6; margin-right: 6px;
+    }
+    .pillar-body { padding: 16px 18px; }
+    .pillar-body ul { padding-left: 0; list-style: none; }
+    .pillar-body li {
+      padding: 5px 0; font-size: 13px; color: var(--muted);
+      border-bottom: 1px solid var(--line);
+      display: flex; gap: 6px; align-items: flex-start;
+    }
+    .pillar-body li:last-child { border-bottom: none; }
+    .pillar-body li::before {
+      content: '›'; color: var(--cyan); font-weight: 700; flex-shrink: 0; margin-top: 1px;
+    }
+
+    /* ──── SIGNAL CARDS ──── */
+    .signal-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: clamp(32px, 5vw, 48px);
+    }
+    @media (min-width: 480px) {
+      .signal-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 800px) {
+      .signal-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .signal-card {
+      background: var(--card); border-radius: 16px;
+      border: 1px solid var(--line);
+      padding: clamp(18px, 3vw, 24px);
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .signal-head { display: flex; gap: 12px; align-items: flex-start; }
+    .signal-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: var(--cyan-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .signal-meta { flex: 1; }
+    .signal-meta h3 { font-size: 15px; font-weight: 700; color: var(--navy); line-height: 1.3; }
+    .signal-meta .data {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(18px, 3vw, 24px);
+      font-weight: 900; color: var(--gold);
+      margin: 4px 0 2px;
+    }
+    .signal-meta .desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* ──── 話術框 ──── */
+    .talk-box {
+      background: #F8FAFC;
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--cyan);
+      border-radius: 0 10px 10px 0;
+      padding: 12px 16px;
+    }
+    .talk-box .talk-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      color: var(--cyan); margin-bottom: 6px;
+    }
+    .talk-box .talk-text {
+      font-size: 13px; color: var(--navy); line-height: 1.7;
+      font-weight: 500;
+    }
+    /* 深色背景上的話術框 */
+    .talk-box.dark {
+      background: rgba(0,168,230,0.08);
+      border-color: rgba(0,168,230,0.3);
+      border-left-color: var(--cyan);
+    }
+    .talk-box.dark .talk-label { color: var(--cyan); }
+    .talk-box.dark .talk-text { color: rgba(255,255,255,0.85); }
+
+    /* ──── AI SECTION ──── */
+    .ai-highlight {
+      text-align: center;
+      background: linear-gradient(135deg, var(--navy-dark), var(--navy-mid));
+      border-radius: 20px; padding: clamp(28px, 5vw, 48px);
+      margin-bottom: 32px; color: #fff;
+    }
+    .ai-highlight .cagr {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(48px, 10vw, 96px);
+      font-weight: 900; color: var(--gold);
+      line-height: 1;
+    }
+    .ai-highlight .cagr-sub { font-size: clamp(14px, 2vw, 17px); color: rgba(255,255,255,0.7); margin-top: 8px; }
+    .ai-highlight .cagr-note { font-size: 13px; color: var(--cyan); margin-top: 12px; }
+
+    .capex-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px; margin-bottom: 32px;
+    }
+    @media (min-width: 640px) {
+      .capex-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .capex-card {
+      background: var(--card); border-radius: 14px;
+      border: 1px solid var(--line); padding: 18px 14px; text-align: center;
+    }
+    .capex-card .co { font-size: 12px; font-weight: 700; color: var(--muted); margin-bottom: 8px; }
+    .capex-card .prev { font-size: 14px; color: var(--muted); text-decoration: line-through; }
+    .capex-card .curr {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 900; color: var(--navy);
+      line-height: 1;
+    }
+    .capex-card .unit { font-size: 11px; color: var(--muted); }
+    .capex-card .arrow { font-size: 18px; color: var(--green); }
+
+    /* ──── WINNER / LOSER TABLE ──── */
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      margin-bottom: 32px;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 500px; }
+    thead th {
+      background: var(--navy); color: #fff;
+      padding: 12px 16px; text-align: left; font-weight: 600;
+      white-space: nowrap;
+    }
+    thead th:first-child { border-radius: 13px 0 0 0; }
+    thead th:last-child  { border-radius: 0 13px 0 0; }
+    tbody tr:nth-child(even) { background: var(--cyan-pale); }
+    tbody td { padding: 11px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .td-win { color: var(--green); font-weight: 700; }
+    .td-lose { color: var(--red); font-weight: 700; }
+    .td-bold { font-weight: 700; color: var(--navy); }
+
+    /* ──── GEO CONFLICT BARS ──── */
+    .geo-bars { margin-bottom: 32px; }
+    .geo-row {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+    }
+    .geo-label { width: 40px; font-size: 12px; font-weight: 700; color: var(--navy); text-align: right; flex-shrink: 0; }
+    .geo-group { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+    .geo-bar-row { display: flex; align-items: center; gap: 6px; }
+    .geo-bar-track { flex: 1; height: 26px; background: var(--line); border-radius: 6px; overflow: hidden; }
+    .geo-bar-fill { height: 100%; border-radius: 6px; display: flex; align-items: center; padding-left: 8px; }
+    .geo-bar-fill .val { font-size: 12px; font-weight: 700; color: #fff; white-space: nowrap; }
+    .geo-bar-fill.sp { background: var(--navy-mid); }
+    .geo-bar-fill.tw { background: var(--gold); }
+    .geo-legend { display: flex; gap: 16px; margin-bottom: 12px; }
+    .geo-legend span { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--muted); }
+    .geo-legend .dot { width: 10px; height: 10px; border-radius: 2px; }
+
+    /* ──── EPS GROWTH ──── */
+    .eps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 12px; margin-bottom: 32px;
+    }
+    .eps-card {
+      background: var(--card); border-radius: 12px;
+      border: 1px solid var(--line); padding: 16px 12px; text-align: center;
+    }
+    .eps-card .market { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+    .eps-card .prev-val { font-size: 13px; color: var(--muted); }
+    .eps-card .curr-val {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(22px, 4vw, 32px); font-weight: 900;
+      color: var(--green);
+    }
+    .eps-card .arrow-up { color: var(--green); font-size: 14px; }
+
+    /* ──── 55688 SECTION ──── */
+    .code-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px; margin-bottom: clamp(24px, 4vw, 40px);
+    }
+    @media (min-width: 480px) {
+      .code-cards { grid-template-columns: repeat(3, 1fr); }
+    }
+    .code-card {
+      border-radius: 18px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: clamp(20px, 3vw, 28px);
+      text-align: center;
+      backdrop-filter: blur(4px);
+      transition: background 0.2s;
+    }
+    .code-card:hover { background: rgba(255,255,255,0.12); }
+    .code-num {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(48px, 10vw, 80px);
+      font-weight: 900; color: var(--gold);
+      line-height: 1; margin-bottom: 10px;
+    }
+    .code-title { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .code-desc { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+    .config-blocks {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px; margin-bottom: clamp(24px, 4vw, 40px);
+    }
+    @media (min-width: 640px) {
+      .config-blocks { grid-template-columns: repeat(3, 1fr); }
+    }
+    .config-block {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px; padding: 18px 16px;
+    }
+    .config-block h4 { font-size: 14px; font-weight: 700; color: var(--cyan); margin-bottom: 10px; }
+    .config-block ul { padding-left: 0; list-style: none; }
+    .config-block li {
+      font-size: 13px; color: rgba(255,255,255,0.7);
+      padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: flex; gap: 6px;
+    }
+    .config-block li:last-child { border-bottom: none; }
+    .config-block li::before { content: '→'; color: var(--cyan); flex-shrink: 0; }
+
+    /* ──── ACTION CARDS ──── */
+    .action-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 640px) {
+      .action-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .action-card {
+      background: var(--card); border-radius: 16px;
+      border: 1px solid var(--line);
+      padding: clamp(20px, 3vw, 28px);
+      position: relative; overflow: hidden;
+    }
+    .action-card::before {
+      content: attr(data-num);
+      position: absolute; bottom: -16px; right: 10px;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 80px; font-weight: 900;
+      color: var(--cyan-light); line-height: 1;
+    }
+    .action-card .num-tag {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--navy); color: #fff;
+      font-size: 14px; font-weight: 700; margin-bottom: 12px;
+    }
+    .action-card h3 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 8px; position: relative; }
+    .action-card p { font-size: 13px; color: var(--muted); line-height: 1.7; position: relative; }
+
+    /* ──── TAKEAWAY ──── */
+    .takeaway-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 640px) {
+      .takeaway-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .takeaway-card {
+      background: var(--card); border-radius: 14px;
+      border: 1px solid var(--line); overflow: hidden;
+    }
+    .takeaway-head {
+      padding: 14px 18px;
+      font-size: 14px; font-weight: 700; color: #fff;
+    }
+    .takeaway-head.c1 { background: var(--navy-dark); }
+    .takeaway-head.c2 { background: var(--navy-mid); }
+    .takeaway-head.c3 { background: var(--cyan-dim); }
+    .takeaway-body { padding: 16px 18px; }
+    .takeaway-body li {
+      font-size: 13px; color: var(--text);
+      padding: 5px 0; border-bottom: 1px solid var(--line);
+      list-style: none; display: flex; gap: 8px; align-items: flex-start;
+    }
+    .takeaway-body li:last-child { border-bottom: none; }
+    .takeaway-body li::before { content: '✓'; color: var(--cyan); font-weight: 700; flex-shrink: 0; }
+
+    /* ──── FOOTER ──── */
+    footer {
+      background: #001429;
+      color: rgba(255,255,255,0.45);
+      padding: clamp(32px, 5vw, 48px) clamp(16px, 4vw, 32px);
+    }
+    .footer-inner { max-width: 900px; margin: 0 auto; }
+    .footer-brand { color: #fff; font-weight: 700; font-size: 15px; margin-bottom: 8px; }
+    .footer-offices {
+      display: flex; gap: 24px; flex-wrap: wrap;
+      margin-bottom: 16px; font-size: 13px;
+    }
+    .footer-offices span { display: flex; gap: 6px; align-items: center; }
+    .footer-disclaimer {
+      font-size: 11px; line-height: 1.8;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 16px; margin-top: 16px;
+    }
+
+    /* ──── DIVIDER ──── */
+    .divider { width: 48px; height: 3px; background: var(--cyan); border-radius: 2px; margin: 14px 0 clamp(24px, 4vw, 36px); }
+    .divider.gold { background: var(--gold); }
+  </style>
+</head>
+<body>
+
+<!-- ══════ HERO ══════ -->
+<section class="hero">
+  <div class="hero-brand">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24" fill="none">
+        <rect x="3" y="4" width="4" height="16" rx="1" fill="#00A8E6"/>
+        <rect x="10" y="8" width="4" height="12" rx="1" fill="#00A8E6" opacity="0.75"/>
+        <rect x="17" y="2" width="4" height="20" rx="1" fill="#00A8E6" opacity="0.5"/>
+      </svg>
+    </div>
+    <div class="brand-name">
+      <strong>Allianz Global Investors</strong>
+      安聯證券投資信託股份有限公司
+    </div>
+  </div>
+
+  <div class="hero-tag">Q2 2026 投資展望</div>
+
+  <h1>
+    <span class="line1">晴雨晦明</span>
+    <span class="line2">主動更有優勢</span>
+  </h1>
+  <p class="hero-sub">
+    不確定性創歷史新高，但<strong style="color:#fff;">「質疑與謹慎並存」≠「沒有行情」</strong>。<br>
+    市場正在大分歧，留在場子裡的人，才能拿到後面的紅利。
+  </p>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="num">45.82%</div>
+      <div class="label">AI Agents 年複合成長率</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">2000億</div>
+      <div class="label">美元 稅改退款規模</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">−70%</div>
+      <div class="label">關稅被法院判違法比例</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">3.4%</div>
+      <div class="label">基金經理人現金部位（近年低點）</div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">向下滑</div>
+</section>
+
+
+<!-- ══════ 引言 + 三大框架 ══════ -->
+<section class="section">
+  <div class="container">
+
+    <div class="marks-block">
+      <p class="marks-quote">
+        「精確預測的能力，<em>不一定能使投資變得更好</em>。」
+      </p>
+      <p class="marks-author">── 投資大師 霍華德・馬克思（Howard Marks）</p>
+      <p class="marks-sub">不確定性高時，主動應變的能力更為關鍵。</p>
+    </div>
+
+    <!-- 不確定性指數 SVG -->
+    <div class="chart-wrap">
+      <div class="chart-title">全球不確定性指數</div>
+      <div class="chart-sub">強勁結構成長周期背後，市場對未來充滿未知 ・資料來源：Bloomberg，1990/3/31–2026/2/28</div>
+      <div style="overflow-x:auto;">
+        <svg viewBox="0 0 760 180" style="min-width:480px;width:100%;height:180px;">
+          <!-- grid -->
+          <line x1="50" y1="20" x2="740" y2="20" stroke="#E2E8F0" stroke-width="1"/>
+          <line x1="50" y1="60" x2="740" y2="60" stroke="#E2E8F0" stroke-width="1"/>
+          <line x1="50" y1="100" x2="740" y2="100" stroke="#E2E8F0" stroke-width="1"/>
+          <line x1="50" y1="140" x2="740" y2="140" stroke="#E2E8F0" stroke-width="1"/>
+          <!-- y labels -->
+          <text x="44" y="24" text-anchor="end" font-size="10" fill="#9CA3AF">120k</text>
+          <text x="44" y="64" text-anchor="end" font-size="10" fill="#9CA3AF">80k</text>
+          <text x="44" y="104" text-anchor="end" font-size="10" fill="#9CA3AF">40k</text>
+          <text x="44" y="144" text-anchor="end" font-size="10" fill="#9CA3AF">0</text>
+          <!-- 折線（模擬1990-2026波動，最後飆升）-->
+          <polyline fill="none" stroke="#F0A500" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+            points="
+              55,130 70,125 85,118 100,122 115,116 130,120 145,115
+              160,118 175,112 190,116 205,110 220,115 235,108
+              250,112 265,105 280,108 295,100 310,105 325,98
+              340,105 355,102 365,95 375,100 385,92 395,98
+              410,95 420,88 430,92 440,85 450,90 460,82
+              470,88 480,80 490,85 500,78 510,82 520,75
+              530,80 540,72 550,78 560,65 570,72 580,60
+              590,68 600,55 610,62 620,50 630,58 640,45
+              650,52 660,38 670,45 680,30 695,15 710,8
+              730,5
+            "/>
+          <!-- 2026 spike 箭頭 -->
+          <circle cx="730" cy="5" r="4" fill="#F0A500"/>
+          <rect x="598" y="2" width="98" height="22" rx="4" fill="#F0A500" opacity="0.95"/>
+          <text x="647" y="17" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">2026 歷史新高！</text>
+          <!-- x labels -->
+          <text x="55"  y="160" text-anchor="middle" font-size="10" fill="#9CA3AF">1990</text>
+          <text x="165" y="160" text-anchor="middle" font-size="10" fill="#9CA3AF">1996</text>
+          <text x="275" y="160" text-anchor="middle" font-size="10" fill="#9CA3AF">2002</text>
+          <text x="385" y="160" text-anchor="middle" font-size="10" fill="#9CA3AF">2008</text>
+          <text x="495" y="160" text-anchor="middle" font-size="10" fill="#9CA3AF">2014</text>
+          <text x="605" y="160" text-anchor="middle" font-size="10" fill="#9CA3AF">2020</text>
+          <text x="710" y="160" text-anchor="middle" font-size="10" fill="#1B3F6D" font-weight="700">2026</text>
+          <!-- 右側問號標籤 -->
+          <text x="748" y="42" font-size="11" fill="#1B3F6D" font-weight="700">經濟?</text>
+          <text x="748" y="60" font-size="11" fill="#1B3F6D">關稅?</text>
+          <text x="748" y="78" font-size="11" fill="#1B3F6D">貨幣?</text>
+          <text x="748" y="96" font-size="11" fill="#1B3F6D">AI?</text>
+          <text x="748" y="114" font-size="11" fill="#1B3F6D">美國?</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- 三大主軸 -->
+    <div class="sec-badge">2026 Q2 三大觀點</div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-head c1"><span class="pillar-num">01</span> 喜憂參雜　該如何解讀</div>
+        <div class="pillar-body">
+          <ul>
+            <li>聯準會迎新舵手，降息仍是主軸</li>
+            <li>消費信心好轉，不著陸為基本情境</li>
+            <li>關稅最大壓力時間點已過</li>
+            <li>大而美稅改，2000億美元活水</li>
+            <li>通膨已見鬆動跡象</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-head c2"><span class="pillar-num">02</span> 質疑謹慎並存 ≠ 沒有行情</div>
+        <div class="pillar-body">
+          <ul>
+            <li>AI 投資存疑之際，膽小鬼遊戲繼續</li>
+            <li>贏家、輸家更為分明</li>
+            <li>AI Agents CAGR 高達 45.82%</li>
+            <li>科技巨頭資本支出加速擴大</li>
+            <li>產業 AI 採用率尚低，仍有空間</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-head c3"><span class="pillar-num">03</span> 汰弱留強　主動更有優勢</div>
+        <div class="pillar-body">
+          <ul>
+            <li>市場廣度擴散，有利主動式策略</li>
+            <li>收益切入＋品質優先</li>
+            <li>偏好股票優於債券</li>
+            <li>非衰退年度　美股往往表現更強</li>
+            <li>地緣衝突後12個月，股市多有表現</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════ 01 喜憂參雜 ══════ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="sec-badge">第一觀點</div>
+    <h2 class="sec-title">喜憂參雜<br>但正面的比負面的多</h2>
+    <div class="divider"></div>
+    <p class="sec-hook">看到市場創新高、客戶想下車？<strong>先別急。</strong>這五個信號告訴你，現在的大環境其實比你想的要穩。</p>
+
+    <div class="signal-grid">
+      <div class="signal-card">
+        <div class="signal-head">
+          <div class="signal-icon">🦅→🕊️</div>
+          <div class="signal-meta">
+            <h3>聯準會迎新舵手</h3>
+            <div class="data">降息2–3碼</div>
+            <p class="desc">Kevin Warsh 獲川普欽點，立場從鷹派明顯轉向鴿派。他相信 AI 能壓抑通膨，降息大門一直開著，市場預期年中後逐步寬鬆。</p>
+          </div>
+        </div>
+        <div class="talk-box">
+          <div class="talk-label">💬 話術這樣說</div>
+          <div class="talk-text">「客人啊，聯準會的新老闆是自己人！他看好 AI 能讓物價變便宜，所以降息大門一直開著。現在資金的水龍頭還開著、水溫正熱，這時候不待在場子裡要幹嘛？」</div>
+        </div>
+      </div>
+
+      <div class="signal-card">
+        <div class="signal-head">
+          <div class="signal-icon">✈️</div>
+          <div class="signal-meta">
+            <h3>消費信心好轉</h3>
+            <div class="data">6個月高點</div>
+            <p class="desc">零售數據受天氣影響走軟，但消費者信心已衝上六個月新高。52% 的基金經理人認為「不著陸（No Landing）」是 2026 年的基本情境。</p>
+          </div>
+        </div>
+        <div class="talk-box">
+          <div class="talk-label">💬 話術這樣說</div>
+          <div class="talk-text">「大家都在擔心經濟要硬著陸還是軟著陸，結果這架飛機電力十足，根本不打算降落！大家有錢、有工作、更有信心，這種環境下股市漲起來是沒在客氣的。」</div>
+        </div>
+      </div>
+
+      <div class="signal-card">
+        <div class="signal-head">
+          <div class="signal-icon">⚖️</div>
+          <div class="signal-meta">
+            <h3>關稅其實是紙老虎</h3>
+            <div class="data">~70% 判違法</div>
+            <p class="desc">最高法院裁定 IEEPA 違法，取消近 70% 的關稅措施。實際有效關稅稅率正在下降，從 13.5% 降至約 11.8%，最大壓力時間點已過。</p>
+          </div>
+        </div>
+        <div class="talk-box">
+          <div class="talk-label">💬 話術這樣說</div>
+          <div class="talk-text">「新聞在那邊嚇說關稅戰，其實那是紙老虎！法院都判違法了，稅率是在降的，不是漲的。新聞嚇人，數字說實話。」</div>
+        </div>
+      </div>
+
+      <div class="signal-card">
+        <div class="signal-head">
+          <div class="signal-icon">💰</div>
+          <div class="signal-meta">
+            <h3>大而美稅改 OBBBA</h3>
+            <div class="data">2000億美元</div>
+            <p class="desc">退稅額比去年平均增加 18%，全年退款規模約 2000 億美元，Q1 就超過 800 億流出。這是直接打進消費者口袋的活水。</p>
+          </div>
+        </div>
+        <div class="talk-box">
+          <div class="talk-label">💬 話術這樣說</div>
+          <div class="talk-text">「同樣是稅，稅改讓美國人每人多領幾千美金！這兩千億的紅包一灑出來，投資市場能不噴嗎？這叫做政策的風在背後吹。」</div>
+        </div>
+      </div>
+
+      <div class="signal-card" style="grid-column: 1 / -1;">
+        <div class="signal-head">
+          <div class="signal-icon">📉</div>
+          <div class="signal-meta">
+            <h3>通膨已見鬆動跡象</h3>
+            <div class="data">供應成本＋薪資雙降</div>
+            <p class="desc">企業對「供應成本」的預期在三季財報後快速下降，薪資通膨指數也同步趨緩。聯準會短線雖待機，但年中後降息路徑已清晰。</p>
+          </div>
+        </div>
+        <div class="talk-box">
+          <div class="talk-label">💬 話術這樣說</div>
+          <div class="talk-text">「大家最怕通膨不退、利率降不了。但現在企業成本在降、薪資壓力也在鬆。降息大門一直開著，只是在等時機。這時候把錢放在場子外面，等你準備好進去，好位置早就被人佔走了。」</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════ 02 AI 膽小鬼遊戲 ══════ -->
+<section class="section">
+  <div class="container">
+    <div class="sec-badge">第二觀點</div>
+    <h2 class="sec-title">AI 膽小鬼遊戲<br>質疑之際，贏家已在拉開距離</h2>
+    <div class="divider"></div>
+    <p class="sec-hook"><strong>「AI 不是泡沫，現在才第一局而已！」</strong> 當市場還在懷疑的時候，科技巨頭已經在比賽砸錢。</p>
+
+    <div class="ai-highlight">
+      <div class="cagr">45.82%</div>
+      <p class="cagr-sub">AI 代理人（Agents）市場・2024–2034 年複合成長率（CAGR）</p>
+      <p class="cagr-note">市場規模從 2024 年的 54 億美元，上看 2034 年的 2,360 億美元</p>
+    </div>
+
+    <!-- 科技巨頭資本支出 -->
+    <p style="font-weight:700;color:var(--navy);margin-bottom:12px;font-size:15px;">科技巨頭 2026 年資本支出（億美元）</p>
+    <div class="capex-grid">
+      <div class="capex-card">
+        <div class="co">Microsoft</div>
+        <div class="prev">2025：83</div>
+        <div class="arrow">↑</div>
+        <div class="curr">114</div>
+        <div class="unit">億美元</div>
+      </div>
+      <div class="capex-card">
+        <div class="co">Alphabet</div>
+        <div class="prev">2025：91</div>
+        <div class="arrow">↑</div>
+        <div class="curr">180</div>
+        <div class="unit">億美元</div>
+      </div>
+      <div class="capex-card">
+        <div class="co">Amazon</div>
+        <div class="prev">2025：132</div>
+        <div class="arrow">↑</div>
+        <div class="curr">200</div>
+        <div class="unit">億美元</div>
+      </div>
+      <div class="capex-card">
+        <div class="co">Meta</div>
+        <div class="prev">2025：70</div>
+        <div class="arrow">↑</div>
+        <div class="curr">122</div>
+        <div class="unit">億美元</div>
+      </div>
+    </div>
+
+    <!-- 贏家輸家表格 -->
+    <p style="font-weight:700;color:var(--navy);margin-bottom:12px;font-size:15px;">AI 的大洗牌：哪些行業是贏家，哪些要小心</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>產業</th><th>關鍵事件</th><th>AI 角色</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-bold">貨運物流</td>
+            <td>AI 自動化，處理量提升 400%</td>
+            <td class="td-win">⬆ 大贏家</td>
+          </tr>
+          <tr>
+            <td class="td-bold">保險經紀</td>
+            <td>OpenAI 批准 Tuio 首款 AI 保險應用（2026/2）</td>
+            <td class="td-win">⬆ 主動轉型</td>
+          </tr>
+          <tr>
+            <td class="td-bold">遊戲產業</td>
+            <td>Google Project Genie 生成多元虛擬世界</td>
+            <td class="td-win">⬆ 大贏家</td>
+          </tr>
+          <tr>
+            <td class="td-bold">法律／稅務</td>
+            <td>Claude Cowork 法律外掛、Altruist AI 稅務規劃</td>
+            <td class="td-win">⬆ 大贏家</td>
+          </tr>
+          <tr>
+            <td class="td-bold">辦公室房產</td>
+            <td>白領被 AI 取代風險，商辦需求長期下滑</td>
+            <td class="td-lose">⬇ 輸家</td>
+          </tr>
+          <tr>
+            <td class="td-bold">傳統 IT 服務</td>
+            <td>APP 生態系面臨 AI 顛覆</td>
+            <td class="td-lose">⬇ 面臨顛覆</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="talk-box">
+      <div class="talk-label">💬 話術這樣說</div>
+      <div class="talk-text">「AI 不是泡沫，現在才第一局而已！以後每個人都有 AI 秘書，這個市場成長快得驚人。連保險業都出現 AI 應用了——你看，我們這行也在進化。現在巨頭在比賽燒錢蓋機房，這台車才剛發動，現在上車正是時候。」</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════ 03 汰弱留強 ══════ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="sec-badge">第三觀點</div>
+    <h2 class="sec-title">汰弱留強<br>主動管理才能趨吉避凶</h2>
+    <div class="divider"></div>
+    <p class="sec-hook"><strong>「現在亂買大盤 ETF？小心買到被 AI 淘汰的過期貨。」</strong> 市場廣度回升、贏輸家分明，這正是主動式策略的主場。</p>
+
+    <!-- 地緣衝突後漲幅 -->
+    <p style="font-weight:700;color:var(--navy);margin-bottom:8px;font-size:15px;">歷次地緣衝突爆發後　股市往往逆勢回升</p>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:20px;">資料來源：Bloomberg，1962–2023 地緣衝突事件</p>
+    <div class="geo-legend">
+      <span><span class="dot" style="background:var(--navy-mid)"></span>S&P 500</span>
+      <span><span class="dot" style="background:var(--gold)"></span>台灣加權指數</span>
+    </div>
+    <div class="geo-bars">
+      <div class="geo-row">
+        <div class="geo-label">+1個月</div>
+        <div class="geo-group">
+          <div class="geo-bar-row">
+            <div class="geo-bar-track"><div class="geo-bar-fill sp" style="width:4%;"><span class="val">+0.4%</span></div></div>
+          </div>
+          <div class="geo-bar-row">
+            <div class="geo-bar-track"><div class="geo-bar-fill tw" style="width:0%;background:transparent;padding-left:6px;"><span style="color:var(--red);font-size:12px;font-weight:700;">−1.4%</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="geo-row">
+        <div class="geo-label">+3個月</div>
+        <div class="geo-group">
+          <div class="geo-bar-row">
+            <div class="geo-bar-track"><div class="geo-bar-fill sp" style="width:10%;"><span class="val">+1.3%</span></div></div>
+          </div>
+          <div class="geo-bar-row">
+            <div class="geo-bar-track"><div class="geo-bar-fill tw" style="width:35%;"><span class="val">+5.4%</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="geo-row">
+        <div class="geo-label">+6個月</div>
+        <div class="geo-group">
+          <div class="geo-bar-row">
+            <div class="geo-bar-track"><div class="geo-bar-fill sp" style="width:42%;"><span class="val">+6.3%</span></div></div>
+          </div>
+          <div class="geo-bar-row">
+            <div class="geo-bar-track"><div class="geo-bar-fill tw" style="width:85%;"><span class="val">+13.2%</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="geo-row">
+        <div class="geo-label">+12個月</div>
+        <div class="geo-group">
+          <div class="geo-bar-row">
+            <div class="geo-bar-track"><div class="geo-bar-fill sp" style="width:65%;"><span class="val">+10.0%</span></div></div>
+          </div>
+          <div class="geo-bar-row">
+            <div class="geo-bar-track"><div class="geo-bar-fill tw" style="width:100%;"><span class="val">+15.6%</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 各市場 EPS 成長 -->
+    <p style="font-weight:700;color:var(--navy);margin-bottom:12px;font-size:15px;margin-top:32px;">主要市場 2026 年獲利成長預估</p>
+    <div class="eps-grid">
+      <div class="eps-card">
+        <div class="market">美股</div>
+        <div class="prev-val">2025：14%</div>
+        <div class="arrow-up">↑</div>
+        <div class="curr-val">18%</div>
+      </div>
+      <div class="eps-card">
+        <div class="market">新興市場</div>
+        <div class="prev-val">2025：11%</div>
+        <div class="arrow-up">↑</div>
+        <div class="curr-val">18%</div>
+      </div>
+      <div class="eps-card">
+        <div class="market">亞洲</div>
+        <div class="prev-val">2025：9%</div>
+        <div class="arrow-up">↑</div>
+        <div class="curr-val">17%</div>
+      </div>
+      <div class="eps-card">
+        <div class="market">科技股</div>
+        <div class="prev-val">2025：22%</div>
+        <div class="curr-val" style="color:var(--navy);">17%</div>
+      </div>
+      <div class="eps-card">
+        <div class="market">歐洲</div>
+        <div class="prev-val">2025：11%</div>
+        <div class="arrow-up">↑</div>
+        <div class="curr-val">13%</div>
+      </div>
+    </div>
+
+    <div class="talk-box">
+      <div class="talk-label">💬 話術這樣說</div>
+      <div class="talk-text">「現在不能隨便買大盤 ETF 了，因為贏家跟輸家分得很清楚。買指數會買到那些被 AI 淘汰的過期貨，只有靠安聯這種專業團隊「主動」幫你選贏家，才能趨吉避凶。投資就像選飯店，你不能靠隨機入住，你需要有人幫你把關。」</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════ 55688 ══════ -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="sec-badge white-badge">Q2 黃金配置口訣</div>
+    <h2 class="sec-title white">55688<br>你 Q2 最強的武器</h2>
+    <div class="divider gold"></div>
+    <p class="sec-hook white">記住這四個數字，跟客戶聊投資的時候，讓他聽完就記得住、而且想要。</p>
+
+    <div class="code-cards">
+      <div class="code-card">
+        <div class="code-num">55</div>
+        <div class="code-title">平衡出擊</div>
+        <div class="code-desc">
+          50% DSP5 收益成長<br>＋ 50% DST3 AI 收益成長<br><br>
+          <strong style="color:var(--gold);">跟漲抗跌，兩邊押注</strong>
+        </div>
+      </div>
+      <div class="code-card">
+        <div class="code-num">6</div>
+        <div class="code-title">掌握機會</div>
+        <div class="code-desc">
+          諧音「機會」<br>AI 與台股的高光時刻<br><br>
+          <strong style="color:var(--gold);">機會稍縱即逝，現在是第一局下半</strong>
+        </div>
+      </div>
+      <div class="code-card">
+        <div class="code-num">88</div>
+        <div class="code-title">月月有感</div>
+        <div class="code-desc">
+          目標年化配息率 <strong style="color:var(--gold);">8%</strong><br>讓客戶月月領到有感<br><br>
+          <strong style="color:var(--gold);">現金流像水龍頭一直流</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- 三大配置方向 -->
+    <p style="font-weight:700;color:rgba(255,255,255,0.85);font-size:15px;margin-bottom:14px;">對應三大配置方向</p>
+    <div class="config-blocks">
+      <div class="config-block">
+        <h4>核心配置：複合資產</h4>
+        <ul>
+          <li>核心收益配置</li>
+          <li>資產輪動</li>
+          <li>跨產業布局 AI、智慧城市</li>
+        </ul>
+      </div>
+      <div class="config-block">
+        <h4>資產搭配：複合債券</h4>
+        <ul>
+          <li>強化收益</li>
+          <li>增加抗震力</li>
+          <li>多元債券策略</li>
+        </ul>
+      </div>
+      <div class="config-block">
+        <h4>結構性股票題材</h4>
+        <ul>
+          <li>台股主動策略</li>
+          <li>台股高息成長策略</li>
+          <li>AI、台股、美科技結構題材</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="talk-box dark">
+      <div class="talk-label">💬 話術這樣說</div>
+      <div class="talk-text">「我幫你記一個號碼叫做『55688』——就像叫車一樣好記。50% 穩健、50% 攻擊性、掌握機會（6=機會）、目標年化8%配息月月有感。你的錢不需要睡死在定存，讓它幫你工作。」</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════ 三大行動 ══════ -->
+<section class="section">
+  <div class="container">
+    <div class="sec-badge">可立即執行</div>
+    <h2 class="sec-title">三件事，今天就開始做</h2>
+    <div class="divider"></div>
+
+    <div class="action-grid">
+      <div class="action-card" data-num="1">
+        <div class="num-tag">1</div>
+        <h3>自己先入場</h3>
+        <p>行銷就是信心的傳遞。哪怕是買零股，自己也要持有安聯的台股或 AI 基金。你只有看過淨值跳動，跟客戶講「55688」時才有靈魂！</p>
+      </div>
+      <div class="action-card" data-num="2">
+        <div class="num-tag">2</div>
+        <h3>轉換話術開場白</h3>
+        <p>開口先問：「你知道現在 AI 才打到第一局嗎？」或「你買了台積電沒？」用「一局下半」或「55688」切入，再導向安聯 U 系列或 DST3。</p>
+      </div>
+      <div class="action-card" data-num="3">
+        <div class="num-tag">3</div>
+        <h3>U 系列衝刺百萬 FYC</h3>
+        <p>台股基金 10 年 12~19 倍的回報不是蓋的。幫 5 個客人每個月定時定額 5,000 元，年收入就能輕鬆墊高。這不是詐騙，這是專業。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════ Key Takeaways ══════ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="sec-badge">截圖分享</div>
+    <h2 class="sec-title">三句話說清楚<br>Q2 的投資邏輯</h2>
+    <div class="divider"></div>
+
+    <div class="takeaway-grid">
+      <div class="takeaway-card">
+        <div class="takeaway-head c1">01 喜憂參雜　該如何解讀</div>
+        <div class="takeaway-body">
+          <ul>
+            <li>全球經濟穩步增長</li>
+            <li>主要央行保持寬鬆</li>
+            <li>聯準會將迎新舵手，降息仍主軸</li>
+            <li>消費數據走弱，信心正在好轉</li>
+            <li>通膨已見鬆動跡象</li>
+            <li>關稅壓力最大時間點已過</li>
+            <li>大而美稅改，2000億美元刺激</li>
+          </ul>
+        </div>
+      </div>
+      <div class="takeaway-card">
+        <div class="takeaway-head c2">02 質疑謹慎並存 ≠ 沒有行情</div>
+        <div class="takeaway-body">
+          <ul>
+            <li>市場對 AI 投資存疑之際</li>
+            <li>膽小鬼遊戲繼續</li>
+            <li>贏家、輸家更為分明</li>
+            <li>運算需求預估持續增長</li>
+            <li>訓練、推論強勁雙引擎</li>
+            <li>產業 AI 採用率尚低，空間大</li>
+          </ul>
+        </div>
+      </div>
+      <div class="takeaway-card">
+        <div class="takeaway-head c3">03 汰弱留強　主動更有優勢</div>
+        <div class="takeaway-body">
+          <ul>
+            <li>市場廣度擴散，有利主動策略</li>
+            <li>獲利增長動能擴散，機會更多</li>
+            <li>利差收窄，收益切入＋品質優先</li>
+            <li>偏好股票優於債券</li>
+            <li>非衰退年度，美股往往更強</li>
+            <li>地緣衝突後 12 個月，股市多有機會</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════ FOOTER ══════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Allianz Global Investors ・ 安聯證券投資信託股份有限公司</div>
+    <div class="footer-offices">
+      <span>📍 台北總公司：台北市中山北路二段42號8樓・(02) 8770-9888</span>
+      <span>📍 台中分公司：台中市公益路二段51號B室・(04) 4217-6088</span>
+      <span>📍 高雄分公司：高雄市四維三路6號2樓B室・(07) 337-6288</span>
+    </div>
+    <div class="footer-disclaimer">
+      【安聯投信　獨立經營管理】110金管投信新字第013號｜網址：tw.allianzgi.com<br>
+      投資涉及風險。投資的價值和收益可能上升也可能下降，投資者可能無法收回全部投資本金。過往表現不代表未來表現。本文屬行銷溝通，僅基於提供資訊為目的，本文不構成購買、出售或持有任何證券的投資意見或推薦。本文所述之數據來自各種被認定為可靠的來源，但無法保證其正確性或完整性。主動式管理之投資無法保證表現超過大盤。本文提及及之投資資產或標的僅供說明使用，而並非對提供購買或出售任何何證券股份或投資意見或推薦。本文及之經濟走勢預測不必然代表本基金之績效，本基金投資風險請詳閱基金公開說明書。金融投資皆有風險，請謹慎評估。
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
