@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>月度員工考核表 | 醫美診所</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
+
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #F0D080;
+      --dark: #0D0F14;
+      --dark-2: #161A23;
+      --dark-3: #1E2330;
+      --dark-4: #252B3B;
+      --text: #E8EAF0;
+      --text-muted: #8890AA;
+      --accent-blue: #4A9FD4;
+      --accent-green: #4ABDA8;
+      --accent-pink: #D45A8A;
+      --accent-purple: #9B72D4;
+      --score-5: #4ABDA8;
+      --score-4: #6DB86B;
+      --score-3: #C9A84C;
+      --score-2: #D4885A;
+      --score-1: #D45A5A;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 40vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 24px 48px;
+      background: radial-gradient(ellipse at 50% 60%, #1a2040 0%, var(--dark) 70%);
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(201,168,76,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(212,90,138,0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.35);
+      color: var(--gold-light);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .hero-title {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #fff 30%, var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      color: var(--text-muted);
+      font-size: 14px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── SCORE LEGEND ── */
+    .legend-wrap {
+      max-width: 860px;
+      margin: 0 auto 48px;
+      padding: 0 24px;
+    }
+    .legend-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .legend-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+    .legend-item {
+      background: var(--dark-3);
+      border-radius: 12px;
+      padding: 14px 10px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .legend-score {
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+    .legend-label {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .legend-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .s5 { color: var(--score-5); }
+    .s4 { color: var(--score-4); }
+    .s3 { color: var(--score-3); }
+    .s2 { color: var(--score-2); }
+    .s1 { color: var(--score-1); }
+
+    /* ── DEPT SECTION ── */
+    .dept-wrap {
+      max-width: 860px;
+      margin: 0 auto 64px;
+      padding: 0 24px;
+    }
+    .dept-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .dept-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .dept-icon.consult { background: rgba(155,114,212,0.2); border: 1px solid rgba(155,114,212,0.4); }
+    .dept-icon.beauty  { background: rgba(212,90,138,0.2);  border: 1px solid rgba(212,90,138,0.4); }
+    .dept-icon.counter { background: rgba(74,159,212,0.2);  border: 1px solid rgba(74,159,212,0.4); }
+    .dept-name {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+    }
+    .dept-name.consult { color: var(--accent-purple); }
+    .dept-name.beauty  { color: var(--accent-pink); }
+    .dept-name.counter { color: var(--accent-blue); }
+
+    /* ── INFO BAR ── */
+    .info-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .info-field {
+      background: var(--dark-3);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .info-field label {
+      display: block;
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .info-field input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      outline: none;
+      border-bottom: 1px dashed rgba(255,255,255,0.15);
+      padding-bottom: 2px;
+    }
+
+    /* ── EVAL TABLE ── */
+    .eval-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .eval-row {
+      display: grid;
+      grid-template-columns: 28px 1fr 200px;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: background 0.15s;
+    }
+    .eval-row:last-child { border-bottom: none; }
+    .eval-row:hover { background: rgba(255,255,255,0.02); }
+    .eval-num {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-align: center;
+      padding: 16px 0;
+    }
+    .eval-label {
+      padding: 16px 12px 16px 0;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+    .eval-label small {
+      display: block;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+    .score-buttons {
+      display: flex;
+      gap: 6px;
+      padding: 12px 16px 12px 0;
+      justify-content: flex-end;
+    }
+    .score-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: inherit;
+    }
+    .score-btn:hover { transform: translateY(-2px); }
+    .score-btn.active-5 { background: var(--score-5); border-color: var(--score-5); color: #0D0F14; }
+    .score-btn.active-4 { background: var(--score-4); border-color: var(--score-4); color: #0D0F14; }
+    .score-btn.active-3 { background: var(--score-3); border-color: var(--score-3); color: #0D0F14; }
+    .score-btn.active-2 { background: var(--score-2); border-color: var(--score-2); color: #fff; }
+    .score-btn.active-1 { background: var(--score-1); border-color: var(--score-1); color: #fff; }
+
+    /* ── REMARK ── */
+    .remark-wrap {
+      margin-top: 16px;
+    }
+    .remark-wrap label {
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .remark-wrap textarea {
+      width: 100%;
+      background: var(--dark-3);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 14px;
+      padding: 14px;
+      resize: vertical;
+      min-height: 80px;
+      outline: none;
+      line-height: 1.6;
+    }
+    .remark-wrap textarea:focus {
+      border-color: rgba(201,168,76,0.4);
+    }
+
+    /* ── TOTAL BAR ── */
+    .total-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--dark-3);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-top: 16px;
+    }
+    .total-label {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .total-score {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--gold-light);
+    }
+    .total-score span {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* ── PRINT BUTTON ── */
+    .print-wrap {
+      max-width: 860px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+      display: flex;
+      gap: 12px;
+    }
+    .btn-print {
+      flex: 1;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(201,168,76,0.4);
+      background: rgba(201,168,76,0.1);
+      color: var(--gold-light);
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.05em;
+    }
+    .btn-print:hover {
+      background: rgba(201,168,76,0.2);
+      transform: translateY(-2px);
+    }
+    .btn-reset {
+      padding: 16px 24px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: transparent;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-reset:hover {
+      background: rgba(255,255,255,0.05);
+    }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      max-width: 860px;
+      margin: 0 auto 48px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+    }
+    .section-divider span {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .legend-grid { grid-template-columns: repeat(5, 1fr); gap: 6px; }
+      .legend-item { padding: 10px 6px; }
+      .legend-desc { display: none; }
+      .eval-row { grid-template-columns: 24px 1fr 180px; }
+      .info-bar { grid-template-columns: 1fr 1fr; }
+      .info-bar > :last-child { grid-column: 1 / -1; }
+      .score-btn { width: 26px; height: 26px; font-size: 11px; }
+      .score-buttons { gap: 4px; }
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: #fff; color: #111; }
+      .hero { background: none; min-height: auto; padding: 24px; }
+      .hero-title { -webkit-text-fill-color: #111; color: #111; }
+      .hero-badge, .btn-print, .btn-reset { display: none; }
+      .eval-card, .info-field, .total-bar, .remark-wrap textarea {
+        border-color: #ccc;
+        background: #fafafa;
+      }
+      .eval-row:hover { background: none; }
+      .score-btn { border-color: #ccc; color: #999; }
+      .score-btn.active-5 { background: #4ABDA8; color: #fff; }
+      .score-btn.active-4 { background: #6DB86B; color: #fff; }
+      .score-btn.active-3 { background: #C9A84C; color: #fff; }
+      .score-btn.active-2 { background: #D4885A; color: #fff; }
+      .score-btn.active-1 { background: #D45A5A; color: #fff; }
+      .dept-wrap { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">醫美診所 · 人員考核系統</div>
+  <h1 class="hero-title">月度員工考核表</h1>
+  <p class="hero-sub">諮詢部 · 美容部 · 櫃檯　｜　每月一次，主管評核</p>
+</div>
+
+<!-- SCORE LEGEND -->
+<div class="legend-wrap">
+  <div class="legend-title">評分標準</div>
+  <div class="legend-grid">
+    <div class="legend-item">
+      <div class="legend-score s5">5</div>
+      <div class="legend-label s5">傑出</div>
+      <div class="legend-desc">持續超越期待，主動積極，無需提醒，能帶動他人</div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-score s4">4</div>
+      <div class="legend-label s4">良好</div>
+      <div class="legend-desc">表現穩定，偶有小疏失能自我修正，達到預期標準</div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-score s3">3</div>
+      <div class="legend-label s3">普通</div>
+      <div class="legend-desc">達到基本要求，穩定但缺乏主動性，偶需提醒</div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-score s2">2</div>
+      <div class="legend-label s2">待改進</div>
+      <div class="legend-desc">未達標準，需主管頻繁提醒或介入</div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-score s1">1</div>
+      <div class="legend-label s1">不合格</div>
+      <div class="legend-desc">明顯不足，持續出現問題，需立即處理</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     諮詢部
+══════════════════════════════════════ -->
+<div class="dept-wrap" id="dept-consult">
+  <div class="dept-header">
+    <div class="dept-icon consult">🎯</div>
+    <div class="dept-name consult">諮詢部</div>
+  </div>
+
+  <div class="info-bar">
+    <div class="info-field">
+      <label>員工姓名</label>
+      <input type="text" placeholder="請填寫" />
+    </div>
+    <div class="info-field">
+      <label>考核月份</label>
+      <input type="month" />
+    </div>
+    <div class="info-field">
+      <label>主管簽名</label>
+      <input type="text" placeholder="請填寫" />
+    </div>
+  </div>
+
+  <div class="eval-card" id="consult-items">
+    <!-- items injected by JS -->
+  </div>
+
+  <div class="total-bar">
+    <div class="total-label">本月總分</div>
+    <div class="total-score" id="consult-total">—<span> / 45</span></div>
+  </div>
+
+  <div class="remark-wrap">
+    <label>本月綜合評語</label>
+    <textarea placeholder="請填寫本月觀察、建議或鼓勵…"></textarea>
+  </div>
+</div>
+
+<div class="section-divider"><span>美容部</span></div>
+
+<!-- ══════════════════════════════════════
+     美容部
+══════════════════════════════════════ -->
+<div class="dept-wrap" id="dept-beauty">
+  <div class="dept-header">
+    <div class="dept-icon beauty">✨</div>
+    <div class="dept-name beauty">美容部</div>
+  </div>
+
+  <div class="info-bar">
+    <div class="info-field">
+      <label>員工姓名</label>
+      <input type="text" placeholder="請填寫" />
+    </div>
+    <div class="info-field">
+      <label>考核月份</label>
+      <input type="month" />
+    </div>
+    <div class="info-field">
+      <label>主管簽名</label>
+      <input type="text" placeholder="請填寫" />
+    </div>
+  </div>
+
+  <div class="eval-card" id="beauty-items">
+    <!-- items injected by JS -->
+  </div>
+
+  <div class="total-bar">
+    <div class="total-label">本月總分</div>
+    <div class="total-score" id="beauty-total">—<span> / 55</span></div>
+  </div>
+
+  <div class="remark-wrap">
+    <label>本月綜合評語</label>
+    <textarea placeholder="請填寫本月觀察、建議或鼓勵…"></textarea>
+  </div>
+</div>
+
+<div class="section-divider"><span>櫃檯</span></div>
+
+<!-- ══════════════════════════════════════
+     櫃檯
+══════════════════════════════════════ -->
+<div class="dept-wrap" id="dept-counter">
+  <div class="dept-header">
+    <div class="dept-icon counter">🏷️</div>
+    <div class="dept-name counter">櫃檯</div>
+  </div>
+
+  <div class="info-bar">
+    <div class="info-field">
+      <label>員工姓名</label>
+      <input type="text" placeholder="請填寫" />
+    </div>
+    <div class="info-field">
+      <label>考核月份</label>
+      <input type="month" />
+    </div>
+    <div class="info-field">
+      <label>主管簽名</label>
+      <input type="text" placeholder="請填寫" />
+    </div>
+  </div>
+
+  <div class="eval-card" id="counter-items">
+    <!-- items injected by JS -->
+  </div>
+
+  <div class="total-bar">
+    <div class="total-label">本月總分</div>
+    <div class="total-score" id="counter-total">—<span> / 40</span></div>
+  </div>
+
+  <div class="remark-wrap">
+    <label>本月綜合評語</label>
+    <textarea placeholder="請填寫本月觀察、建議或鼓勵…"></textarea>
+  </div>
+</div>
+
+<!-- PRINT BUTTONS -->
+<div class="print-wrap">
+  <button class="btn-print" onclick="window.print()">列印 / 儲存 PDF</button>
+  <button class="btn-reset" onclick="resetAll()">清除全部</button>
+</div>
+
+<script>
+const DEPTS = {
+  consult: {
+    id: 'consult-items',
+    totalId: 'consult-total',
+    max: 45,
+    items: [
+      { label: '舊客維繫', desc: '主動追蹤舊客、促進回診，維持良好關係' },
+      { label: '客訴處理', desc: '應對方式是否得宜、回報時效是否迅速' },
+      { label: '轉介紹經營', desc: '主動創造口碑機會，促進客人推薦' },
+      { label: '社群嘉許', desc: '促使客人在 Google、IG 等平台留下正評' },
+      { label: '帶客入診', desc: '有無促成朋友、家人前來體驗' },
+      { label: '專業知識更新', desc: '掌握新療程、新產品，能正確向客人說明' },
+      { label: '出勤與儀態', desc: '準時出席、儀容整潔、態度專業' },
+      { label: '排假規範', desc: '依規定提前排假，配合診所運營需求' },
+      { label: '記點紀錄', desc: '無記點為滿分，每筆記點依嚴重程度酌減' },
+    ]
+  },
+  beauty: {
+    id: 'beauty-items',
+    totalId: 'beauty-total',
+    max: 55,
+    items: [
+      { label: '療程技術品質', desc: '手法正確、操作標準，客人感受良好' },
+      { label: '療程流程確實執行', desc: '無跳步驟、無省略，依 SOP 完整操作' },
+      { label: '衛生與器材管理', desc: '器材消毒、耗材存放符合衛生標準' },
+      { label: '客人療程體驗', desc: '過程舒適、有被照顧感，主動詢問客人感受' },
+      { label: '跨部門配合', desc: '與諮詢部確實交接客人資訊、回報療程狀況' },
+      { label: '主動學習', desc: '積極學習新技術，通過相關認證或訓練' },
+      { label: '診所環境整潔', desc: '診間、公共區域維持整潔，療程前後確實清潔' },
+      { label: '盤點與叫貨', desc: '庫存正確記錄，補貨及時，無短缺或浪費' },
+      { label: '出勤與儀態', desc: '準時出席、儀容整潔、態度專業' },
+      { label: '排假規範', desc: '依規定提前排假，配合診所運營需求' },
+      { label: '記點紀錄', desc: '無記點為滿分，每筆記點依嚴重程度酌減' },
+    ]
+  },
+  counter: {
+    id: 'counter-items',
+    totalId: 'counter-total',
+    max: 40,
+    items: [
+      { label: '接待品質', desc: '第一印象良好、電話應對得宜、迎送客有禮' },
+      { label: '預約管理', desc: '無漏約、錯約，預約系統維護正確' },
+      { label: '收費正確性', desc: '無收費錯誤、開錯帳單，帳目清楚' },
+      { label: '行政文件整理', desc: '表單、病歷、庫存紀錄整理確實' },
+      { label: '場控能力', desc: '掌握現場客人與諮詢師、醫師的服務進度，確保每位客人不被遺忘或怠慢' },
+      { label: '出勤與儀態', desc: '準時出席、儀容整潔、態度專業' },
+      { label: '排假規範', desc: '依規定提前排假，配合診所運營需求' },
+      { label: '記點紀錄', desc: '無記點為滿分，每筆記點依嚴重程度酌減' },
+    ]
+  }
+};
+
+// Build eval rows
+function buildItems(deptKey) {
+  const dept = DEPTS[deptKey];
+  const container = document.getElementById(dept.id);
+  dept.items.forEach((item, idx) => {
+    const row = document.createElement('div');
+    row.className = 'eval-row';
+    row.innerHTML = `
+      <div class="eval-num">${idx + 1}</div>
+      <div class="eval-label">
+        ${item.label}
+        <small>${item.desc}</small>
+      </div>
+      <div class="score-buttons">
+        ${[1,2,3,4,5].map(s => `<button class="score-btn" data-dept="${deptKey}" data-idx="${idx}" data-score="${s}" onclick="setScore(this, '${deptKey}', ${idx}, ${s})">${s}</button>`).join('')}
+      </div>
+    `;
+    container.appendChild(row);
+  });
+}
+
+const scores = { consult: {}, beauty: {}, counter: {} };
+
+function setScore(btn, dept, idx, score) {
+  // clear siblings
+  const siblings = btn.parentElement.querySelectorAll('.score-btn');
+  siblings.forEach(b => { b.className = 'score-btn'; });
+  btn.classList.add(`active-${score}`);
+  scores[dept][idx] = score;
+  updateTotal(dept);
+}
+
+function updateTotal(dept) {
+  const deptData = DEPTS[dept];
+  const vals = Object.values(scores[dept]);
+  if (vals.length === 0) {
+    document.getElementById(deptData.totalId).innerHTML = `—<span> / ${deptData.max}</span>`;
+    return;
+  }
+  const sum = vals.reduce((a, b) => a + b, 0);
+  const totalEl = document.getElementById(deptData.totalId);
+  let color = '#4ABDA8';
+  const pct = sum / deptData.max;
+  if (pct < 0.4) color = '#D45A5A';
+  else if (pct < 0.6) color = '#D4885A';
+  else if (pct < 0.8) color = '#C9A84C';
+  totalEl.style.color = color;
+  totalEl.innerHTML = `${sum}<span> / ${deptData.max}</span>`;
+}
+
+function resetAll() {
+  if (!confirm('確定要清除所有評分嗎？')) return;
+  Object.keys(scores).forEach(d => { scores[d] = {}; });
+  document.querySelectorAll('.score-btn').forEach(b => { b.className = 'score-btn'; });
+  ['consult', 'beauty', 'counter'].forEach(d => updateTotal(d));
+  document.querySelectorAll('input[type=text], input[type=month]').forEach(i => { i.value = ''; });
+  document.querySelectorAll('textarea').forEach(t => { t.value = ''; });
+}
+
+// Init
+buildItems('consult');
+buildItems('beauty');
+buildItems('counter');
+</script>
+</body>
+</html>
