@@ -334,22 +334,73 @@
     color: #C8001E;
     font-size: 17px;
   }
-  .progress-summary {
-    margin-top: 14px;
-    background: #f0f6ff;
-    border-radius: 8px;
-    padding: 12px 16px;
-    font-size: 15px;
-    color: #2a70b9;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
+
+  /* Per-person progress cards */
+  .person-progress-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
   }
-  .progress-summary .total-pieces {
-    font-size: 22px;
+  .person-card {
+    border: 2px solid #c5d8f0;
+    border-radius: 10px;
+    padding: 14px;
+    background: #f8fbff;
+  }
+  .person-card .person-name {
+    font-size: 17px;
     font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  .person-card .pieces-count {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2a70b9;
+    line-height: 1;
+  }
+  .person-card .pieces-label {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 10px;
+  }
+  .bar-wrap {
+    background: #dde9f8;
+    border-radius: 20px;
+    height: 10px;
+    margin-bottom: 8px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    background: linear-gradient(90deg, #2a70b9, #4a9de8);
+    height: 100%;
+    border-radius: 20px;
+    transition: width 0.3s;
+  }
+  .gap-badge {
+    display: inline-block;
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffc107;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .gap-badge.reached {
+    background: #d4edda;
+    color: #155724;
+    border-color: #52c41a;
+  }
+  .progress-note {
+    margin-top: 14px;
+    background: #fff8e6;
+    border: 1px solid #ffd666;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: #7a5f00;
   }
 
   /* Footer */
@@ -527,7 +578,7 @@
   <!-- 進度追蹤 -->
   <div class="progress-section">
     <div class="progress-title">目前進度追蹤</div>
-    <div class="progress-updated">更新：115/04/26｜第一階段（3/26～4/27）</div>
+    <div class="progress-updated">更新：115/04/27｜第一階段（3/26～4/27）｜目標：每人累計 8 件</div>
     <table class="progress-table">
       <thead>
         <tr>
@@ -555,9 +606,33 @@
         </tr>
       </tbody>
     </table>
-    <div class="progress-summary">
-      <span>本階段累計件數：<span class="total-pieces">2 件</span></span>
-      <span style="color:#52c41a; font-weight:700;">✓ 已達任一階段獎勵門檻（≥2件）</span>
+
+    <!-- 個人達標進度 -->
+    <div class="person-progress-grid">
+      <!-- 林君溥：1/8 -->
+      <div class="person-card">
+        <div class="person-name">林君溥</div>
+        <div class="pieces-count">1</div>
+        <div class="pieces-label">件 ／ 目標 8 件</div>
+        <div class="bar-wrap">
+          <div class="bar-fill" style="width:12.5%"></div>
+        </div>
+        <span class="gap-badge">還差 7 件</span>
+      </div>
+      <!-- 李秉芳：1/8 -->
+      <div class="person-card">
+        <div class="person-name">李秉芳</div>
+        <div class="pieces-count">1</div>
+        <div class="pieces-label">件 ／ 目標 8 件</div>
+        <div class="bar-wrap">
+          <div class="bar-fill" style="width:12.5%"></div>
+        </div>
+        <span class="gap-badge">還差 7 件</span>
+      </div>
+    </div>
+
+    <div class="progress-note">
+      ⚠️ 獎勵以<strong>個人</strong>件數計算，目前尚無人達標（路徑B需三階段累計 ≥ 8 件，且每階段 ≥ 1 件）
     </div>
   </div>
 
