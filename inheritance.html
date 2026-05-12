@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>【業務員必備】高資產客群傳承行銷週報：從法律與人性，鎖定大額保單</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
+    :root {
+      --cream: #FAF6EF;
+      --warm: #F2EAD8;
+      --brown-light: #C9A87A;
+      --brown: #8B6347;
+      --brown-dark: #3A2510;
+      --ink: #1A130A;
+      --ink-soft: #3D2B1A;
+      --text-body: #4A3A2A;
+      --text-muted: #8A7A6A;
+      --navy: #1B2A44;
+      --navy-light: #2E4372;
+      --gold: #C9943A;
+      --gold-light: #E8B85A;
+      --red: #B94040;
+      --jade: #3E7D6B;
+      --jade-light: #5BAA94;
+      --bg-card: #FFFCF7;
+      --shadow: rgba(27,42,68,0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background: var(--cream);
+      color: var(--text-body);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* ──────────────────── HERO ──────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(145deg, var(--brown-dark) 0%, #1B2A44 60%, #0D1A2E 100%);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 3px,
+          rgba(201,148,58,0.018) 3px,
+          rgba(201,148,58,0.018) 6px
+        );
+    }
+
+    .hero-bg-text {
+      position: absolute;
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(110px, 18vw, 240px);
+      font-weight: 900;
+      color: rgba(255,255,255,0.022);
+      letter-spacing: -0.02em;
+      user-select: none;
+      pointer-events: none;
+      white-space: nowrap;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      padding: 80px 32px;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '';
+      width: 36px;
+      height: 1px;
+      background: var(--gold-light);
+      opacity: 0.5;
+    }
+
+    .hero-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.9rem, 5vw, 3.2rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 20px;
+      letter-spacing: 0.03em;
+    }
+    .hero-title .gold { color: var(--gold-light); }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 52px;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-pills {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .hero-pill {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(201,148,58,0.3);
+      border-radius: 100px;
+      padding: 8px 20px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 0.08em;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.25);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(201,148,58,0.5), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.15); }
+    }
+
+    /* ──────────────────── INTRO STRIP ──────────────────── */
+    .intro-strip {
+      background: var(--navy);
+      padding: 36px 24px;
+      text-align: center;
+    }
+    .intro-strip p {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 1.02rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 2;
+      font-style: italic;
+    }
+    .intro-strip strong {
+      color: var(--gold-light);
+      font-style: normal;
+    }
+
+    /* ──────────────────── LAYOUT ──────────────────── */
+    .page-section {
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    .section-header {
+      margin-bottom: 52px;
+    }
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .section-tag::before {
+      content: '';
+      width: 20px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+    h2 .accent { color: var(--navy-light); }
+    h2 .gold { color: var(--gold); }
+
+    /* ──────────────────── HIGHLIGHTS (5大亮點) ──────────────────── */
+    .highlight-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .hl-card {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      background: var(--bg-card);
+      border-radius: 20px;
+      box-shadow: 0 4px 20px var(--shadow);
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .hl-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px var(--shadow);
+    }
+
+    .hl-num-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 28px 0;
+      background: var(--hl-bg, var(--navy));
+    }
+    .hl-card:nth-child(1) { --hl-bg: var(--navy); }
+    .hl-card:nth-child(2) { --hl-bg: var(--gold); }
+    .hl-card:nth-child(3) { --hl-bg: var(--jade); }
+    .hl-card:nth-child(4) { --hl-bg: var(--red); }
+    .hl-card:nth-child(5) { --hl-bg: var(--brown); }
+
+    .hl-icon { font-size: 1.8rem; margin-bottom: 6px; }
+    .hl-num-text {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .hl-body { padding: 28px 32px; }
+    .hl-keyword {
+      display: inline-block;
+      background: rgba(27,42,68,0.07);
+      color: var(--hl-bg, var(--navy));
+      border: 1px solid rgba(27,42,68,0.12);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+    }
+    .hl-subtitle {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .hl-text {
+      font-size: 0.9rem;
+      color: var(--text-body);
+      line-height: 1.9;
+    }
+    .hl-highlight {
+      margin-top: 16px;
+      padding: 14px 18px;
+      border-left: 3px solid var(--hl-bg, var(--navy));
+      background: rgba(0,0,0,0.025);
+      border-radius: 0 10px 10px 0;
+      font-size: 0.87rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    .hl-highlight strong { color: var(--ink-soft); font-style: normal; }
+
+    /* ──────────────────── SEPARATOR ──────────────────── */
+    .ornament-sep {
+      text-align: center;
+      padding: 16px;
+      color: var(--gold);
+      font-size: 1.1rem;
+      letter-spacing: 0.5em;
+      opacity: 0.5;
+    }
+
+    /* ──────────────────── LAW TABLE SECTION ──────────────────── */
+    .law-section {
+      background: var(--warm);
+      padding: 80px 24px;
+    }
+    .law-inner { max-width: 940px; margin: 0 auto; }
+
+    .analysis-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin-top: 52px;
+    }
+
+    .analysis-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 36px 36px;
+      box-shadow: 0 4px 20px var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .analysis-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 4px;
+      background: var(--ac-color, var(--navy));
+    }
+    .analysis-card:nth-child(1) { --ac-color: var(--navy); }
+    .analysis-card:nth-child(2) { --ac-color: var(--gold); }
+    .analysis-card:nth-child(3) { --ac-color: var(--jade); }
+
+    .analysis-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--ac-color, var(--navy));
+      margin-bottom: 8px;
+    }
+    .analysis-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    /* 法條三組數字 table */
+    .law-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin: 20px 0;
+    }
+    .law-table th {
+      background: var(--navy);
+      color: rgba(255,255,255,0.85);
+      padding: 10px 16px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+    }
+    .law-table th:first-child { border-radius: 8px 0 0 0; }
+    .law-table th:last-child { border-radius: 0 8px 0 0; }
+    .law-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      color: var(--text-body);
+      line-height: 1.7;
+    }
+    .law-table tr:nth-child(even) td { background: rgba(27,42,68,0.03); }
+    .law-table .law-code {
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 700;
+      color: var(--navy-light);
+      font-size: 0.95rem;
+    }
+    .law-table .law-phrase {
+      font-weight: 700;
+      color: var(--gold);
+      font-size: 1rem;
+    }
+
+    .analysis-body {
+      font-size: 0.9rem;
+      color: var(--text-body);
+      line-height: 1.95;
+    }
+    .analysis-body strong { color: var(--ink-soft); }
+
+    .insight-box {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 640px) { .insight-box { grid-template-columns: 1fr; } }
+
+    .insight-item {
+      background: rgba(27,42,68,0.04);
+      border-radius: 12px;
+      padding: 18px 20px;
+      border-left: 3px solid var(--ac-color, var(--navy));
+    }
+    .insight-item-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ac-color, var(--navy));
+      margin-bottom: 8px;
+    }
+    .insight-item-text {
+      font-size: 0.85rem;
+      color: var(--text-body);
+      line-height: 1.8;
+    }
+    .insight-item-text strong { color: var(--ink-soft); }
+
+    .tax-example {
+      margin-top: 20px;
+      background: rgba(62,125,107,0.06);
+      border-radius: 14px;
+      padding: 24px 24px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .tax-step {
+      flex: 1;
+      min-width: 180px;
+      text-align: center;
+    }
+    .tax-step-num {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--jade);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .tax-step-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .tax-arrow {
+      display: flex;
+      align-items: center;
+      font-size: 1.4rem;
+      color: var(--jade);
+      opacity: 0.5;
+      align-self: center;
+    }
+
+    /* ──────────────────── ACTION SECTION ──────────────────── */
+    .action-section {
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    .action-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 52px;
+    }
+    .action-grid .action-card:first-child {
+      grid-column: 1 / -1;
+    }
+    @media (max-width: 680px) {
+      .action-grid { grid-template-columns: 1fr; }
+      .action-grid .action-card:first-child { grid-column: auto; }
+    }
+
+    .action-card {
+      background: var(--bg-card);
+      border-radius: 18px;
+      padding: 30px 28px;
+      box-shadow: 0 4px 20px var(--shadow);
+      position: relative;
+      overflow: hidden;
+      border-top: 4px solid var(--ca-color, var(--navy));
+    }
+    .action-card:nth-child(1) { --ca-color: var(--navy); }
+    .action-card:nth-child(2) { --ca-color: var(--gold); }
+    .action-card:nth-child(3) { --ca-color: var(--jade); }
+    .action-card:nth-child(4) { --ca-color: var(--red); }
+    .action-card:nth-child(5) { --ca-color: var(--brown); }
+
+    .action-card-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--ca-color, var(--navy));
+      margin-bottom: 8px;
+    }
+    .action-tag {
+      display: inline-block;
+      background: rgba(27,42,68,0.06);
+      color: var(--ca-color, var(--navy));
+      border: 1px solid rgba(27,42,68,0.1);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 100px;
+      margin-bottom: 12px;
+    }
+    .action-card-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 12px;
+      line-height: 1.45;
+    }
+    .action-card-body {
+      font-size: 0.87rem;
+      color: var(--text-body);
+      line-height: 1.9;
+    }
+    .action-card-body strong { color: var(--ink-soft); }
+    .action-todo {
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ca-color, var(--navy));
+    }
+    .todo-box {
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--ca-color, var(--navy));
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    /* ──────────────────── CLOSING ──────────────────── */
+    .closing {
+      background: linear-gradient(145deg, var(--brown-dark) 0%, var(--navy) 100%);
+      padding: 80px 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .closing::before {
+      content: '傳承';
+      position: absolute;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 220px;
+      font-weight: 900;
+      color: rgba(255,255,255,0.025);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      pointer-events: none;
+      user-select: none;
+    }
+    .closing-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .closing-badge {
+      display: inline-block;
+      border: 1px solid rgba(201,148,58,0.4);
+      color: var(--gold-light);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      padding: 6px 20px;
+      border-radius: 100px;
+      margin-bottom: 32px;
+    }
+    .closing-quote {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.05rem, 2.2vw, 1.4rem);
+      font-weight: 600;
+      color: rgba(255,255,255,0.88);
+      line-height: 2.1;
+      margin-bottom: 36px;
+    }
+    .closing-quote em {
+      color: var(--gold-light);
+      font-style: normal;
+    }
+    .closing-sig {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.12em;
+    }
+
+    /* ──────────────────── FOOTER ──────────────────── */
+    footer {
+      background: var(--ink);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.28);
+      letter-spacing: 0.05em;
+    }
+    footer span { color: var(--gold-light); }
+
+    /* ──────────────────── RESPONSIVE ──────────────────── */
+    @media (max-width: 600px) {
+      .hl-card { grid-template-columns: 68px 1fr; }
+      .hl-body { padding: 20px 18px; }
+      .analysis-card { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════ HERO ══════════════════════════ -->
+<div class="hero">
+  <div class="hero-bg-text">傳承</div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">業務員必備 · 高資產客群傳承行銷週報</div>
+    <div class="hero-title">從<span class="gold">法律與人性</span><br/>鎖定大額保單</div>
+    <div class="hero-subtitle">解碼傳承痛點，讓你成為客戶家族不可或缺的財富守護者</div>
+    <div class="hero-pills">
+      <div class="hero-pill">民法特留分破解</div>
+      <div class="hero-pill">3055 黃金藍圖</div>
+      <div class="hero-pill">土地法 73-1</div>
+      <div class="hero-pill">大 S 案實戰</div>
+      <div class="hero-pill">受益人卡位術</div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    SCROLL
+  </div>
+</div>
+
+<!-- ══════════════════════════ INTRO STRIP ══════════════════════════ -->
+<div class="intro-strip">
+  <p>
+    「你不是在賣保險，你是在賣你自己。
+    解決了客人心裡的願望，他才會解決你的業績。」<br/>
+    <strong>觀念不改，業績就不會翻兩翻。</strong>
+    我們保險業是一個「做愛」的行業，更是「積功德」的事業。
+  </p>
+</div>
+
+<!-- ══════════════════════════ SECTION 1：前言 ══════════════════════════ -->
+<div class="page-section">
+  <div class="section-header">
+    <div class="section-tag">轉變觀念，才能翻轉業績</div>
+    <h2>高資產客戶的問題<br/>都一樣，關鍵在<span class="accent">你能不能懂他</span></h2>
+  </div>
+
+  <div style="background: var(--bg-card); border-radius: 20px; padding: 40px 36px; box-shadow: 0 4px 20px var(--shadow); font-size: 0.95rem; line-height: 2; color: var(--text-body);">
+    <p style="margin-bottom: 16px;">
+      各位夥伴，大家早安。經營高資產客戶（HNW）這麼多年，我常跟學生說：
+      如果你還在跟客戶比宣告利率、比 IRV，那你永遠只能簽小單。
+      有錢人的問題其實都一樣，但關鍵在於，你能不能成為他心目中那個<strong>「懂他家務事」的人</strong>？
+    </p>
+    <p style="margin-bottom: 16px;">
+      我們不只是在賣一張紙，我們是在幫客戶解決最難開口的分配問題，確保「家和萬事興」。
+    </p>
+    <div style="background: var(--navy); border-radius: 12px; padding: 24px 28px; text-align: center; margin-top: 24px;">
+      <p style="font-family: 'Noto Serif TC', serif; font-size: 1.1rem; font-weight: 700; color: #fff; line-height: 1.9;">
+        「你不是在賣保險，你是在賣你自己。<br/>
+        解決了客人心裡的願望，他才會解決你的業績。」
+      </p>
+      <p style="margin-top: 12px; font-size: 12px; color: rgba(255,255,255,0.4); letter-spacing: 0.1em;">當你能說服客戶在「呼吸中斷線」之前先行規劃，你的價值將無可取代。</p>
+    </div>
+  </div>
+</div>
+
+<div class="ornament-sep">◆ ◇ ◆</div>
+
+<!-- ══════════════════════════ SECTION 2：五大亮點 ══════════════════════════ -->
+<div class="page-section">
+  <div class="section-header">
+    <div class="section-tag">五大關鍵亮點</div>
+    <h2>隨時放在口袋裡的<br/><span class="gold">五支利箭</span></h2>
+  </div>
+
+  <div class="highlight-grid">
+
+    <div class="hl-card">
+      <div class="hl-num-col">
+        <div class="hl-icon">⚖️</div>
+        <div class="hl-num-text">01</div>
+      </div>
+      <div class="hl-body">
+        <div class="hl-keyword">受益權 > 繼承權</div>
+        <div class="hl-subtitle">保險法是民法的特別法——財富自由分配</div>
+        <div class="hl-text">
+          保險法第 5 條是民法的特別法。保險金屬於「受益權」，不列入遺產。
+          這意味著它能合法繞過民法「特留分」的限制。
+          客戶想給誰、想給多少，完全由他決定，這才是真正的財富自由分配。
+        </div>
+        <div class="hl-highlight">
+          <strong>核心話術：</strong>「保單受益金不是遺產，繼承人對它沒有特留分請求權。您現在的規劃，才能真正決定這筆錢的去向。」
+        </div>
+      </div>
+    </div>
+
+    <div class="hl-card">
+      <div class="hl-num-col">
+        <div class="hl-icon">🏦</div>
+        <div class="hl-num-text">02</div>
+      </div>
+      <div class="hl-body">
+        <div class="hl-keyword">3055 黃金藍圖</div>
+        <div class="hl-subtitle">合法搬移 1.2 億資產——四年計劃</div>
+        <div class="hl-text">
+          別教客戶逃稅，要教他「合法繳稅」。利用每年 244 萬免稅額，
+          加上贈與稅 10% 稅率級距上限 2,811 萬，合計 <strong>3,055 萬</strong>。
+          連續規劃四年，就能合法搬移約 <strong>1.2 億</strong>資產至下一代。
+          這是在「呼吸停止前」利用 10% 低稅率避開未來 20% 遺產稅的最佳路徑。
+        </div>
+        <div class="hl-highlight">
+          <strong>3055 公式：</strong>244 萬（免稅）＋ 2,811 萬（10% 級距）＝ 3,055 萬 × 4 年 ≈ <strong>1.2 億搬移完成</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="hl-card">
+      <div class="hl-num-col">
+        <div class="hl-icon">🏚️</div>
+        <div class="hl-num-text">03</div>
+      </div>
+      <div class="hl-body">
+        <div class="hl-keyword">土地法 73-1</div>
+        <div class="hl-subtitle">房產傳承的「骨折」危機</div>
+        <div class="hl-text">
+          許多客戶愛留土地，但繼承人若沒共識，土地會被列冊管理 15 年後標售。
+          國有財產署不是仲介，標售不點交且連續打折。
+          最終政府可能以市價<strong>四折</strong>強制收購。
+          留給子孫「不動產」若變成「不能動的產」，那是悲劇而非恩賜。
+        </div>
+        <div class="hl-highlight">
+          <strong>開場問句：</strong>「您知道如果子女之間對土地處置意見不一，政府最後會用幾折來收購嗎？答案可能讓您心疼。」
+        </div>
+      </div>
+    </div>
+
+    <div class="hl-card">
+      <div class="hl-num-col">
+        <div class="hl-icon">👩‍⚖️</div>
+        <div class="hl-num-text">04</div>
+      </div>
+      <div class="hl-body">
+        <div class="hl-keyword">大 S 案啟發</div>
+        <div class="hl-subtitle">保險金分期給付——精準守護財富流向</div>
+        <div class="hl-text">
+          透過保險金分期給付功能，可以精準控制財富流向，
+          確保錢是留在想照顧的子女與父母身邊，
+          而不是被受益人的「前夫」或「新任配偶」花掉。
+          這就是保險的守護力——用設計保護愛，不讓意外切斷你的安排。
+        </div>
+        <div class="hl-highlight">
+          <strong>情境話術：</strong>「如果孩子未來離婚，這筆錢分期給付給您的孩子，配偶無法分到一毛。這就是設計的力量。」
+        </div>
+      </div>
+    </div>
+
+    <div class="hl-card">
+      <div class="hl-num-col">
+        <div class="hl-icon">🎯</div>
+        <div class="hl-num-text">05</div>
+      </div>
+      <div class="hl-body">
+        <div class="hl-keyword">受益人卡位術</div>
+        <div class="hl-subtitle">保險沒法致富，除非你是受益人</div>
+        <div class="hl-text">
+          保險無法讓你致富，除非你「卡」到了受益人的位子。
+          幫客戶做保單健診時，要專業地指出：如果受益人只寫「法定繼承人」，
+          萬一發生意外，父母可能一毛都拿不到。
+          我們要推動「指定分配」，確保孝親費不因傳承而中斷。
+        </div>
+        <div class="hl-highlight">
+          <strong>健診問句：</strong>「您保單的受益人現在寫的是什麼？如果是法定繼承人，您的父母可能完全拿不到——我們來幫您調整。」
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════ SECTION 3：三大剖析 ══════════════════════════ -->
+<div class="law-section">
+  <div class="law-inner">
+    <div class="section-header">
+      <div class="section-tag">三大內容剖析</div>
+      <h2>深度解析<span class="accent">法律與資產工具</span></h2>
+    </div>
+
+    <div class="analysis-grid">
+
+      <!-- 剖析一：三組數字 -->
+      <div class="analysis-card">
+        <div class="analysis-num">ANALYSIS 01</div>
+        <div class="analysis-title">民法傳承三組數字：38、44、23</div>
+        <div class="analysis-body">
+          <p style="margin-bottom: 20px;">專業形象建立於對法條的精準掌控。在客戶面前，請熟記這三組編號與口訣：</p>
+        </div>
+        <table class="law-table">
+          <thead>
+            <tr>
+              <th>法條</th>
+              <th>內容核心</th>
+              <th>口訣</th>
+              <th>具體含義</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="law-code">民法 1138</span></td>
+              <td>繼承人順位</td>
+              <td><span class="law-phrase">300</span>（誰繼承）</td>
+              <td>決定誰有權利領遺產（配偶、子女、父母等）</td>
+            </tr>
+            <tr>
+              <td><span class="law-code">民法 1144</span></td>
+              <td>應繼分</td>
+              <td><span class="law-phrase">吸細</span>（均分）</td>
+              <td>法律規定大家「應該」怎麼分</td>
+            </tr>
+            <tr>
+              <td><span class="law-code">民法 1223</span></td>
+              <td>特留分</td>
+              <td><span class="law-phrase">李是</span>（不公時）</td>
+              <td>法律給繼承人的最低保障，也是訴訟的開端</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="analysis-body" style="margin-top: 16px;">
+          <p>面談時，流暢寫下這三組數字，展現出「財富傳承專家」的架勢。<strong>這是建立差異化的第一步。</strong></p>
+        </div>
+      </div>
+
+      <!-- 剖析二：遺囑 vs 保險 -->
+      <div class="analysis-card">
+        <div class="analysis-num">ANALYSIS 02</div>
+        <div class="analysis-title">遺囑的陷阱 vs. 保險的現金價值</div>
+        <div class="analysis-body">
+          <p style="margin-bottom: 20px;">很多客戶想寫遺囑，但我通常建議客戶「想盡辦法阻止他」。為什麼？</p>
+        </div>
+        <div class="insight-box">
+          <div class="insight-item" style="--ac-color: var(--red);">
+            <div class="insight-item-label" style="color: var(--red);">遺囑的陷阱</div>
+            <div class="insight-item-text">
+              遺囑是訴訟的開始。長榮張總裁案告了<strong>八年</strong>，即便遺囑有效，
+              國庫卻收了天價裁判費。遺囑效力極脆弱：見證人若接一通電話離場，
+              遺囑在法院就會被判<strong>無效</strong>！
+            </div>
+          </div>
+          <div class="insight-item" style="--ac-color: var(--jade);">
+            <div class="insight-item-label" style="color: var(--jade);">保險金的優勢</div>
+            <div class="insight-item-text">
+              保險金領取只需 <strong>15 天</strong>，且不因遺囑訴訟而卡關。
+              現金傳承優於資產傳承——訴訟中的凍結資產動不了，
+              但保險金已到受益人戶頭。
+            </div>
+          </div>
+        </div>
+        <div class="analysis-body" style="margin-top: 20px;">
+          <p style="text-align: center; font-family: 'Noto Serif TC', serif; font-size: 1.05rem; font-weight: 700; color: var(--navy); padding: 16px; background: rgba(27,42,68,0.05); border-radius: 10px;">
+            「現金傳承優於資產傳承」
+          </p>
+        </div>
+      </div>
+
+      <!-- 剖析三：房地合一稅 -->
+      <div class="analysis-card">
+        <div class="analysis-num">ANALYSIS 03</div>
+        <div class="analysis-title">房地合一稅 2.0 的金蟬脫殼計</div>
+        <div class="analysis-body">
+          <p style="margin-bottom: 20px;">以 4 億豪宅（公告現值 8,000 萬）為例，若直接繼承，子女賣出時獲利 3.2 億，稅金驚人。</p>
+        </div>
+        <div class="tax-example">
+          <div class="tax-step">
+            <div class="tax-step-num">4,000萬</div>
+            <div class="tax-step-label">保單價準備金<br/>分年贈與給子女</div>
+          </div>
+          <div class="tax-arrow">→</div>
+          <div class="tax-step">
+            <div class="tax-step-num">解約金</div>
+            <div class="tax-step-label">子女領取後<br/>回頭「購買」豪宅</div>
+          </div>
+          <div class="tax-arrow">→</div>
+          <div class="tax-step">
+            <div class="tax-step-num">成本=4億</div>
+            <div class="tax-step-label">取得成本墊高至<br/>市場價 4 億</div>
+          </div>
+          <div class="tax-arrow">→</div>
+          <div class="tax-step">
+            <div class="tax-step-num" style="color: var(--jade);">獲利≈0</div>
+            <div class="tax-step-label">未來賣房<br/>合法省數千萬稅</div>
+          </div>
+        </div>
+        <div class="analysis-body" style="margin-top: 20px;">
+          <p><strong>關鍵：</strong>利用保險「變更要保人」功能，將子女的房屋「取得成本」墊高至市場價，使未來賣房時獲利趨近於零，合法省下數千萬的房地合一稅。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="ornament-sep">◆ ◇ ◆</div>
+
+<!-- ══════════════════════════ SECTION 4：五個行動 ══════════════════════════ -->
+<div class="action-section">
+  <div class="section-header">
+    <div class="section-tag">五個提議行動</div>
+    <h2>明天就能<br/><span class="gold">找客戶談</span>的策略</h2>
+  </div>
+
+  <div class="action-grid">
+
+    <div class="action-card">
+      <div class="action-card-num">ACTION 01</div>
+      <div class="action-tag">專業卡位</div>
+      <div class="action-card-title">法條數字行銷：熟記「38、44、23」與口訣</div>
+      <div class="action-card-body">
+        熟記「38、44、23」與口訣「300／吸細／李是」。
+        面談時，流暢寫下這三組數字，展現出「財富傳承專家」的架勢。
+        這個動作花不到 30 秒，卻能讓客戶立刻感受到你的專業深度，
+        與其他只談商品的業務員產生鮮明差異。
+      </div>
+      <div class="action-todo">
+        <div class="todo-box"></div>
+        今晚練習把三組數字與口訣寫十遍，直到流暢為止
+      </div>
+    </div>
+
+    <div class="action-card">
+      <div class="action-card-num">ACTION 02</div>
+      <div class="action-tag">保單健診</div>
+      <div class="action-card-title">推動指定受益人，解決照顧遺憾</div>
+      <div class="action-card-body">
+        立即檢視客戶保單。問客戶：<strong>「這筆錢，您想先照顧太太，還是先留給辛苦養育您的母親？」</strong>
+        運用「指定分配」取代「法定繼承」，解決重男輕女或代際照顧的遺憾。
+      </div>
+      <div class="action-todo">
+        <div class="todo-box"></div>
+        本週安排三位客戶的保單健診，確認受益人欄位
+      </div>
+    </div>
+
+    <div class="action-card">
+      <div class="action-card-num">ACTION 03</div>
+      <div class="action-tag">故事開場</div>
+      <div class="action-card-title">用「東門鴨肉飯」和 S 媽案例破冰</div>
+      <div class="action-card-body">
+        提到「東門鴨肉飯」老母親將店面過給兒媳卻被趕出的悲劇，引導客戶思考：
+        送資產（不動產）不如送現金（保險金），保險才能保證老有所依。
+        搭配大 S 案的分期給付，讓客戶自己說出：「對，我就是怕這種事。」
+      </div>
+      <div class="action-todo">
+        <div class="todo-box"></div>
+        準備兩個故事案例，下次客戶面談時作為開場
+      </div>
+    </div>
+
+    <div class="action-card">
+      <div class="action-card-num">ACTION 04</div>
+      <div class="action-tag">稅務誘因</div>
+      <div class="action-card-title">台灣是避稅天堂——國際對比說服法</div>
+      <div class="action-card-body">
+        客戶嫌 20% 遺產稅高？告訴他：<strong>日本最高 55%（免稅額僅 110 萬日幣）</strong>，
+        美國最高 40%（贈與免稅僅 1.9 萬美金）。台灣 244 萬免稅額是極大的紅利。
+        鼓勵客戶利用 10% 級距「合法搬錢」。
+      </div>
+      <div class="action-todo">
+        <div class="todo-box"></div>
+        製作一張三國稅率對比卡片，下次帶去拜訪
+      </div>
+    </div>
+
+    <div class="action-card">
+      <div class="action-card-num">ACTION 05</div>
+      <div class="action-tag">掌孫策略</div>
+      <div class="action-card-title">攻破長輩心防的「甜點行銷」</div>
+      <div class="action-card-body">
+        針對有傳統觀念的長輩，利用「掌孫（長孫）」這個心頭好。
+        建議阿媽借款買保險，受益人寫長孫，
+        並搭配遺囑讓長孫單獨繼承房產（由保險理賠金支付房貸）。
+        這種「甜點行銷」對高資產長輩非常受用。
+      </div>
+      <div class="action-todo">
+        <div class="todo-box"></div>
+        盤點客戶名單，找出有傳統長輩的家族案例
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════ CLOSING ══════════════════════════ -->
+<div class="closing">
+  <div class="closing-inner">
+    <div class="closing-badge">業務員的社會價值</div>
+    <div class="closing-quote">
+      透過一張大額保單，<br/>
+      我們幫客戶守住了<em>家族的股權穩定</em>，<br/>
+      避免了骨肉相殘的訴訟，<br/>
+      更幫那些<em>無法開口的人</em>留下了最後的保障。<br/><br/>
+      當你具備法律的<em>硬實力</em>與人性洞察的<em>軟實力</em>，<br/>
+      你就是客戶家族中<em>最無可取代的財富守護者</em>。
+    </div>
+    <div class="closing-sig">讓我們一起帶著智慧，去成就更多家庭的「家和萬事興」！</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ FOOTER ══════════════════════════ -->
+<footer>
+  <span>高資產客群傳承行銷週報</span> · 從法律與人性，鎖定大額保單 · 由 Keri 製作為業務員實戰版 · 2026
+</footer>
+
+</body>
+</html>
