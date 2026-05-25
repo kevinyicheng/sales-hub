@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>楊先生 — 客戶背景簡報</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, 'Noto Sans TC', sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+    min-height: 100vh;
+    padding: 24px 16px 48px;
+  }
+
+  .header {
+    text-align: center;
+    padding: 32px 0 24px;
+    border-bottom: 1px solid #1e3a5f;
+    margin-bottom: 28px;
+  }
+  .header h1 { font-size: 1.8rem; font-weight: 700; color: #f8fafc; }
+  .header .sub { font-size: 0.85rem; color: #64748b; margin-top: 6px; letter-spacing: 0.05em; }
+  .badge {
+    display: inline-block;
+    background: #1e3a5f;
+    border: 1px solid #2563eb;
+    color: #93c5fd;
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-top: 10px;
+  }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+  @media (max-width: 700px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .card-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #64748b;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .card-title .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #2563eb;
+  }
+
+  .profile-name { font-size: 2rem; font-weight: 800; color: #f1f5f9; }
+  .profile-age { font-size: 0.9rem; color: #94a3b8; margin-top: 4px; }
+  .profile-tag {
+    display: inline-block;
+    background: #0f3460;
+    color: #60a5fa;
+    font-size: 0.75rem;
+    padding: 3px 9px;
+    border-radius: 6px;
+    margin-top: 10px;
+    border: 1px solid #1d4ed8;
+  }
+  .profile-bio {
+    margin-top: 14px;
+    font-size: 0.88rem;
+    color: #94a3b8;
+    line-height: 1.7;
+  }
+
+  .family-member {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #1e3a5f;
+  }
+  .family-member:last-child { border-bottom: none; }
+  .avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .av-spouse { background: #1e3a5f; }
+  .av-son1   { background: #1a3a2a; }
+  .av-son2   { background: #2a1a3a; }
+  .member-info { flex: 1; }
+  .member-name { font-size: 0.9rem; font-weight: 600; color: #e2e8f0; }
+  .member-meta { font-size: 0.78rem; color: #64748b; margin-top: 2px; }
+  .member-badge {
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .mb-blue  { background: #0f2a5a; color: #60a5fa; border: 1px solid #1d4ed8; }
+  .mb-green { background: #0d2b1e; color: #4ade80; border: 1px solid #166534; }
+  .mb-purple{ background: #1e1040; color: #c084fc; border: 1px solid #6d28d9; }
+
+  .asset-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 0;
+    border-bottom: 1px solid #1e3a5f;
+    font-size: 0.88rem;
+  }
+  .asset-row:last-child { border-bottom: none; }
+  .asset-label { color: #94a3b8; display: flex; align-items: center; gap: 8px; }
+  .asset-value { font-weight: 600; color: #f1f5f9; }
+  .asset-value.highlight { color: #34d399; }
+  .asset-value.unknown { color: #64748b; font-style: italic; font-size: 0.8rem; }
+
+  .timeline-item {
+    display: flex;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid #1e3a5f;
+  }
+  .timeline-item:last-child { border-bottom: none; }
+  .tl-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+  .tl-date { font-size: 0.75rem; color: #475569; margin-bottom: 4px; }
+  .tl-title { font-size: 0.9rem; font-weight: 600; color: #e2e8f0; }
+  .tl-desc  { font-size: 0.8rem; color: #94a3b8; margin-top: 4px; line-height: 1.5; }
+
+  /* Product compare */
+  .compare-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+  @media(max-width:600px){ .compare-wrap{grid-template-columns:1fr;} }
+
+  .product-card {
+    border-radius: 10px;
+    padding: 18px;
+    border: 1px solid;
+  }
+  .pc-pca   { background: #1a1a2e; border-color: #6366f1; }
+  .pc-fubon { background: #0d2b1e; border-color: #10b981; }
+
+  .pc-brand {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .pca-brand   { color: #818cf8; }
+  .fubon-brand { color: #34d399; }
+
+  .pc-title { font-size: 0.95rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+  .pc-row { display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px solid #1e3a5f; font-size:0.82rem; }
+  .pc-row:last-child{border-bottom:none;}
+  .pc-lbl { color:#94a3b8; }
+  .pc-val { font-weight:600; color:#e2e8f0; }
+  .pc-val.accent-pca   { color:#818cf8; }
+  .pc-val.accent-fubon { color:#34d399; }
+
+  .kpi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:14px; }
+  .kpi-box {
+    border-radius:8px;
+    padding:12px;
+    text-align:center;
+    border:1px solid #1e3a5f;
+    background:#0f172a;
+  }
+  .kpi-label { font-size:0.68rem; color:#64748b; margin-bottom:4px; }
+  .kpi-pca   { font-size:0.95rem; font-weight:700; color:#818cf8; }
+  .kpi-fubon { font-size:0.95rem; font-weight:700; color:#34d399; margin-top:4px; }
+  .kpi-sep   { width:100%; height:1px; background:#1e3a5f; margin:4px 0; }
+
+  .winner-badge {
+    display:inline-block;
+    font-size:0.7rem;
+    padding:2px 8px;
+    border-radius:20px;
+    margin-top:6px;
+  }
+  .wb-green { background:#0d2b1e; color:#4ade80; border:1px solid #166534; }
+  .wb-purple{ background:#1e1040; color:#a78bfa; border:1px solid #6d28d9; }
+
+  .full-width { grid-column: 1 / -1; }
+  .note {
+    background: #1e2a1a;
+    border: 1px solid #166534;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.82rem;
+    color: #86efac;
+    margin-top: 16px;
+    line-height: 1.7;
+  }
+  .note strong { color: #4ade80; }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #475569;
+    margin: 24px 0 10px;
+  }
+
+  footer {
+    text-align:center;
+    margin-top:40px;
+    font-size:0.75rem;
+    color:#334155;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="sub">CLIENT BRIEFING</div>
+  <h1>楊先生 資產配置簡報</h1>
+  <div class="badge">機密 · 僅供內部討論</div>
+</div>
+
+<!-- Row 1: Profile + Family -->
+<div class="grid-2">
+
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>客戶輪廓</div>
+    <div class="profile-name">楊先生</div>
+    <div class="profile-age">50 歲 · 男性</div>
+    <div class="profile-tag">高資產 HNW</div>
+    <div class="profile-bio">
+      前小三通物流公司負責人，事業有成、資本雄厚。<br>
+      偏好主動投資（台股 + ETF），具備市場判斷力，<br>
+      對金融商品有一定鑑別能力。
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>家庭成員</div>
+
+    <div class="family-member">
+      <div class="avatar av-spouse">👩</div>
+      <div class="member-info">
+        <div class="member-name">配偶</div>
+        <div class="member-meta">47 歲 · 管理子女資產帳戶</div>
+      </div>
+      <span class="member-badge mb-blue">資產待確認</span>
+    </div>
+
+    <div class="family-member">
+      <div class="avatar av-son1">👦</div>
+      <div class="member-info">
+        <div class="member-name">長子</div>
+        <div class="member-meta">18 歲 · 被保險人（本次規劃）</div>
+      </div>
+      <span class="member-badge mb-green">贈與 1,000 萬</span>
+    </div>
+
+    <div class="family-member">
+      <div class="avatar av-son2">🧒</div>
+      <div class="member-info">
+        <div class="member-name">次子</div>
+        <div class="member-meta">13 歲</div>
+      </div>
+      <span class="member-badge mb-purple">贈與 1,000 萬</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- Row 2: Assets + Timeline -->
+<div class="grid-2">
+
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>資產概覽</div>
+
+    <div class="asset-row">
+      <span class="asset-label">🏠 不動產</span>
+      <span class="asset-value highlight">3 間房子</span>
+    </div>
+    <div class="asset-row">
+      <span class="asset-label">📈 台股 / ETF</span>
+      <span class="asset-value highlight">持有中（金額未揭露）</span>
+    </div>
+    <div class="asset-row">
+      <span class="asset-label">👦 長子帳戶</span>
+      <span class="asset-value highlight">TWD 1,000 萬</span>
+    </div>
+    <div class="asset-row">
+      <span class="asset-label">🧒 次子帳戶</span>
+      <span class="asset-value highlight">TWD 1,000 萬</span>
+    </div>
+    <div class="asset-row">
+      <span class="asset-label">👩 配偶資產</span>
+      <span class="asset-value unknown">資訊待確認</span>
+    </div>
+    <div class="asset-row">
+      <span class="asset-label">📌 子女帳戶管理人</span>
+      <span class="asset-value">配偶</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>接觸時間軸</div>
+
+    <div class="timeline-item">
+      <div class="tl-dot" style="background:#f59e0b;"></div>
+      <div>
+        <div class="tl-date">115 年年初</div>
+        <div class="tl-title">初次規劃 — PFA 槓桿型壽險</div>
+        <div class="tl-desc">針對楊先生本人提出傳富安（PFA）方案，著重槓桿型身故保障，已有初步溝通。</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="tl-dot" style="background:#818cf8;"></div>
+      <div>
+        <div class="tl-date">約兩個月前</div>
+        <div class="tl-title">競品介入 — 保誠人壽美元分紅保單</div>
+        <div class="tl-desc">保經業務提出保誠人壽 USD 方案，以長子（18 歲）為被保險人，<br>約 200 萬台幣年繳，繳費 12 年。兩種方案：領回型 vs. 不領回（至 75 歲）。</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="tl-dot" style="background:#34d399;"></div>
+      <div>
+        <div class="tl-date">現在</div>
+        <div class="tl-title">我方對案 — 富邦人壽 USD 方案</div>
+        <div class="tl-desc">類似配置金額、縮短繳費年期（6 年），強調早期回本與長期複利優勢。</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Product Compare Section -->
+<div class="section-label">商品對比分析 — 被保險人：長子 18 歲</div>
+
+<div class="compare-wrap">
+
+  <div class="product-card pc-pca">
+    <div class="pc-brand pca-brand">競品 · PCAlife 保誠人壽</div>
+    <div class="pc-title">美元分紅保單</div>
+    <div class="pc-row"><span class="pc-lbl">年繳保費</span><span class="pc-val accent-pca">USD $75,000 ≈ TWD 236 萬</span></div>
+    <div class="pc-row"><span class="pc-lbl">繳費年期</span><span class="pc-val accent-pca">12 年</span></div>
+    <div class="pc-row"><span class="pc-lbl">總繳保費</span><span class="pc-val">USD $900,000 ≈ TWD 2,835 萬</span></div>
+    <div class="pc-row"><span class="pc-lbl">方案 A（領回型）</span><span class="pc-val">第 2 年起領保額 10%＋分紅 ≈ 30 萬/年</span></div>
+    <div class="pc-row"><span class="pc-lbl">方案 B（不領回）</span><span class="pc-val">18 歲 → 75 歲全程累積</span></div>
+    <div class="pc-row"><span class="pc-lbl">第 6 年資產回填率</span><span class="pc-val accent-pca">67.4%</span></div>
+    <div class="pc-row"><span class="pc-lbl">第 12 年累計領回</span><span class="pc-val accent-pca">USD $202,085</span></div>
+    <div class="pc-row"><span class="pc-lbl">75 歲總效益（預估）</span><span class="pc-val accent-pca">USD $3,110,258</span></div>
+  </div>
+
+  <div class="product-card pc-fubon">
+    <div class="pc-brand fubon-brand">我方 · 富邦人壽</div>
+    <div class="pc-title">美元方案</div>
+    <div class="pc-row"><span class="pc-lbl">年繳保費</span><span class="pc-val accent-fubon">USD $149,551 ≈ TWD 471 萬</span></div>
+    <div class="pc-row"><span class="pc-lbl">繳費年期</span><span class="pc-val accent-fubon">6 年</span></div>
+    <div class="pc-row"><span class="pc-lbl">總繳保費</span><span class="pc-val">USD $897,306 ≈ TWD 2,826 萬</span></div>
+    <div class="pc-row"><span class="pc-lbl">繳費期間負擔</span><span class="pc-val">集中 6 年，早日解放現金流</span></div>
+    <div class="pc-row"><span class="pc-lbl">第 6 年資產回填率</span><span class="pc-val accent-fubon">100.4% ✓ 已回本</span></div>
+    <div class="pc-row"><span class="pc-lbl">第 12 年累計領回</span><span class="pc-val accent-fubon">USD $290,402</span></div>
+    <div class="pc-row"><span class="pc-lbl">75 歲總效益（預估）</span><span class="pc-val accent-fubon">USD $3,210,832</span></div>
+    <div class="pc-row"><span class="pc-lbl">資本實力</span><span class="pc-val accent-fubon">富邦集團 1,184 億元</span></div>
+  </div>
+
+</div>
+
+<!-- KPI 比較 -->
+<div class="card">
+  <div class="card-title"><span class="dot"></span>三大關鍵指標對比</div>
+  <div class="kpi-grid">
+    <div class="kpi-box">
+      <div class="kpi-label">第 6 年資產回填率</div>
+      <div class="kpi-pca">67.4%</div>
+      <div class="kpi-sep"></div>
+      <div class="kpi-fubon">100.4%</div>
+      <div><span class="winner-badge wb-green">富邦勝</span></div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-label">第 12 年累計領回</div>
+      <div class="kpi-pca">USD 202,085</div>
+      <div class="kpi-sep"></div>
+      <div class="kpi-fubon">USD 290,402</div>
+      <div><span class="winner-badge wb-green">富邦勝 +43%</span></div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-label">75 歲總效益</div>
+      <div class="kpi-pca">USD 3,110,258</div>
+      <div class="kpi-sep"></div>
+      <div class="kpi-fubon">USD 3,210,832</div>
+      <div><span class="winner-badge wb-green">富邦勝 +3.2%</span></div>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>核心賣點：</strong>兩張保單總繳保費幾乎相同（差距不到 1%），但富邦方案透過縮短繳費年期至 6 年，讓長子在 24 歲時即完成繳費，<strong>第 6 年即回本（100.4%）</strong>，比保誠方案快 6 年解放現金流，且 75 歲時總效益多出約 <strong>USD $100,574（約 TWD 317 萬）</strong>。
+  </div>
+</div>
+
+<footer>
+  Keri · 2026-05-25 · 僅供業務討論使用
+</footer>
+
+</body>
+</html>
